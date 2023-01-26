@@ -207,7 +207,7 @@ namespace ams::mitm::fs {
         R_UNLESS(!cfg::HasContentSpecificFlag(m_client_info.program_id, "do_not_redirect_save"), sm::mitm::ResultShouldForwardToSession());
 
         /* Redirect account, bcat and device savedata. */
-        R_UNLESS(attribute.type == (fs::SaveDataType::Account) || attribute.type == (fs::SaveDataType::Device) || attribute.type == (fs::SaveDataType::Bcat), sm::mitm::ResultShouldForwardToSession());
+        R_UNLESS((attribute.type == fs::SaveDataType::Account) || (attribute.type == fs::SaveDataType::Device) || (attribute.type == fs::SaveDataType::Bcat) || (attribute.type == fs::SaveDataType::Cache), sm::mitm::ResultShouldForwardToSession());
 
         /* If emunand enabled */
         R_UNLESS(emummc::IsActive(), sm::mitm::ResultShouldForwardToSession());
