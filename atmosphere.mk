@@ -29,7 +29,6 @@ dist-no-debug: package3 $(CURRENT_DIRECTORY)/$(ATMOSPHERE_OUT_DIR)
 	mkdir -p $(DIST_DIR)/bootloader/payloads
 	mkdir -p $(DIST_DIR)/switch/daybreak
 	mkdir -p $(DIST_DIR)/atmosphere/kip_patches
-	cp fusee/$(ATMOSPHERE_BOOT_OUT_DIR)/fusee.bin $(DIST_DIR)/atmosphere/reboot_payload.bin
 	cp fusee/$(ATMOSPHERE_BOOT_OUT_DIR)/package3 $(DIST_DIR)/atmosphere/package3
 	cp config_templates/stratosphere.ini $(DIST_DIR)/atmosphere/config_templates/stratosphere.ini
 	cp config_templates/override_config.ini $(DIST_DIR)/atmosphere/config_templates/override_config.ini
