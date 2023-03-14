@@ -14,13 +14,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #pragma once
+#include <stratosphere.hpp>
 
-#define ATMOSPHERE_RELEASE_VERSION_MAJOR    1
-#define ATMOSPHERE_RELEASE_VERSION_MINOR    5
-#define ATMOSPHERE_RELEASE_VERSION_MICRO    1
+namespace ams::os::impl {
 
-#define ATMOSPHERE_RELEASE_VERSION ATMOSPHERE_RELEASE_VERSION_MAJOR, ATMOSPHERE_RELEASE_VERSION_MINOR, ATMOSPHERE_RELEASE_VERSION_MICRO
+    class UnsafeMemoryImpl {
+        public:
+            static Result AllocateUnsafeMemoryImpl(uintptr_t *out_address, size_t size);
+            static Result FreeUnsafeMemoryImpl(uintptr_t address, size_t size);
+    };
 
-#define ATMOSPHERE_SUPPORTED_HOS_VERSION_MAJOR 16
-#define ATMOSPHERE_SUPPORTED_HOS_VERSION_MINOR 0
-#define ATMOSPHERE_SUPPORTED_HOS_VERSION_MICRO 0
+}

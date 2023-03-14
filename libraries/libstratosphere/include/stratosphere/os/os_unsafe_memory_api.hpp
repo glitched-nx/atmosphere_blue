@@ -13,14 +13,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 #pragma once
+#include <stratosphere/os/os_memory_common.hpp>
 
-#define ATMOSPHERE_RELEASE_VERSION_MAJOR    1
-#define ATMOSPHERE_RELEASE_VERSION_MINOR    5
-#define ATMOSPHERE_RELEASE_VERSION_MICRO    1
+namespace ams::os {
 
-#define ATMOSPHERE_RELEASE_VERSION ATMOSPHERE_RELEASE_VERSION_MAJOR, ATMOSPHERE_RELEASE_VERSION_MINOR, ATMOSPHERE_RELEASE_VERSION_MICRO
+    Result AllocateUnsafeMemory(uintptr_t *out_address, size_t size);
+    Result FreeUnsafeMemory(uintptr_t address, size_t size);
 
-#define ATMOSPHERE_SUPPORTED_HOS_VERSION_MAJOR 16
-#define ATMOSPHERE_SUPPORTED_HOS_VERSION_MINOR 0
-#define ATMOSPHERE_SUPPORTED_HOS_VERSION_MICRO 0
+}
