@@ -68,7 +68,6 @@ dist-no-debug: package3 $(CURRENT_DIRECTORY)/$(ATMOSPHERE_OUT_DIR)
 	@build_romfs $(DIST_DIR)/stratosphere_romfs $(DIST_DIR)/atmosphere/stratosphere.romfs
 	rm -r $(DIST_DIR)/stratosphere_romfs
 	cp troposphere/daybreak/daybreak.nro $(DIST_DIR)/switch/daybreak/daybreak.nro
-	cp troposphere/haze/haze.nro $(DIST_DIR)/switch/haze.nro
 	cp fusee/$(ATMOSPHERE_BOOT_OUT_DIR)/fusee.bin $(DIST_DIR)/bootloader/payloads/fusee.bin
 	cd $(DIST_DIR); ls; rm -rf ../../../../../atmosphere-$(ATMOSPHERE_VERSION).zip; ls
 	cd $(DIST_DIR); zip -r ../../../../../atmosphere-$(ATMOSPHERE_VERSION).zip ./*; cd ../;
