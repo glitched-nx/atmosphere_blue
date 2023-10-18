@@ -148,7 +148,7 @@ namespace dbk {
 
     void DrawProgressText(NVGcontext *vg, float x, float y, float progress) {
         char progress_text[32] = {};
-        snprintf(progress_text, sizeof(progress_text)-1, "%d%% complete", static_cast<int>(progress * 100.0f));
+        snprintf(progress_text, sizeof(progress_text)-1, "%d%% Abgeschlossen", static_cast<int>(progress * 100.0f));
 
         nvgFontSize(vg, 24.0f);
         nvgFontFace(vg, SwitchStandardFont);
