@@ -69,7 +69,7 @@ namespace ams::fatal::srv {
             /* Neither heap nor insecure is available, so we're going to have to try to raid the unsafe pool. */
             {
                 /* First, increase the limit to an extremely high value. */
-                size_t large_size = std::max(64_MB, FrameBufferRequiredSizeHeapAligned);
+                size_t large_size = std::max(128_MB, FrameBufferRequiredSizeHeapAligned);
                 while (svc::ResultLimitReached::Includes(svc::SetUnsafeLimit(large_size))) {
                     large_size *= 2;
                 }
@@ -258,7 +258,7 @@ namespace ams::fatal::srv {
 
             /* Draw a background. */
             for (size_t i = 0; i < FrameBufferRequiredSizeBytes / sizeof(*tiled_buf); i++) {
-                tiled_buf[i] = 0x39C9;
+                tiled_buf[i] = AtmosphereLogoData[0];
             }
 
             /* Draw the atmosphere logo in the upper right corner. */

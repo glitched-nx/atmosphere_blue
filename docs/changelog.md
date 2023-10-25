@@ -1,4 +1,56 @@
 # Changelog
+## 1.6.1
++ An improved solution to [the problem that would cause consoles which had previously re-built their SYSTEM partition to brick on update-to-17.0.0](https://gist.github.com/SciresM/2ddb708c812ed585c4d99f54e25205ff) was added.
+  + In particular, booting atmosphère will now automatically detect the problem and unbrick any consoles which have fallen into this state.
++ Some improvements were made to `haze`, including:
+  + Performance was greatly improved:
+    + Support was added for GetObjectPropList, which decreases the amount of requests made by ~8x.
+    + Haze now performs rendering on the GPU, freeing up the CPU to respond to requests in a more timely manner.
+  + An issue was fixed with how `haze` configures `bMaxPacketSize0` which improves support for USB3.
++ General system stability improvements to enhance the user's experience.
+## 1.6.0
++ Basic support was added for 17.0.0.
+  + The console should boot and atmosphère should be fully functional. However, not all modules have been fully updated to reflect the latest changes.
+    + There shouldn't be anything user visible resulting from this, but it will be addressed in a soon-to-come atmosphère update.
+  + `exosphère` was updated to reflect the latest official secure monitor behavior.
+  + `mesosphère` was updated to reflect the latest official kernel behavior.
+  + `ncm` was updated to reflect the latest official behavior.
+  + `erpt` was partially updated to support the latest official behavior.
++ Atmosphere's gdbstub now supports waiting to attach to a specific program id on launch (as opposed to any application).
+  + The monitor command for this is `monitor wait <hex program id>`, where program id can optionally have an `0x` prefix.
++ Support was added to `haze` for editing files in-place and performing 64-bit transfers (files larger than 4 GB).
++ `bpc.mitm` was enabled on Mariko units, and now triggers pmic-based shutdowns/reboots (thanks @CTCaer).
+  + This should cause the console to no longer wake ~15 seconds after shutdown on Mariko.
++ A number of minor issues were fixed and improvements were made, including:
+  + A workaround was added for a change in 17.0.0 that would cause consoles which had previously re-built their SYSTEM partition to brick on update-to-17.0.0.
++ General system stability improvements to enhance the user's experience.
+## 1.5.5
++ Support was added for 16.1.0.
++ General system stability improvements to enhance the user's experience.
+## 1.5.4
++ Experimental new functionality was implemented to prevent crashing when building romfs for certain games with obscene file counts.
+  + This includes both Fire Emblem: Engage (~190000 files), and The Legend of Zelda: Tears of the Kingdom (~300000) files.
+  + The solution involved adding functionality to ams.mitm/pm to dynamically steal memory from the application (and system) pool as needed when the games have romfs mods.
+    + No memory is taken, and there is no cost to this functionality when playing without mods (or with overrides disabled).
+  + The Legend of Zelda: Tears of the Kingdom is currently the absolute worst case game, requiring ~48 MB of memory to build a romfs image to play with mods.
+    + Right now, the memory is sourced as follows: 32 MB (base ams.mitm heap), 10 MB (stolen from application pool), 8 MB (dynamically stolen from system pool).
+    + This is 50 MB, which allows a little overhead in the worst case (prevents crashing due to exhausting the heap for other allocations in ams.mitm).
+    + Zelda is remarkably sensitive to memory being stolen from the application pool, tolerating no more than 16 MB on 1.0.0 and 12 MB on 1.1.0. I have chosen to steal 10 MB, to be safe, for now.
+      + This may break on a future game update, but I will fix it if and when that happens. There is no perfect solution; the game simply requires too much memory to support mods flawlessly, and I am forced to compromise.
+  + As usual, if you encounter a game that exhausts ams.mitm's memory (crashing it) when loading layeredfs mods, please contact `SciresM#0524`.
+    "I am jinxing myself by saying this, but it's really hard to imagine any game being worse than The Legend of Zelda: Tears of the Kingdom, but if it happens again I will drop everything to fix it as usual".
++ General system stability improvements to enhance the user's experience.
+## 1.5.3
++ Support was added for 16.0.3.
++ Atmosphère was updated to use GCC 13/newlib (latest devkitA64/devkitARM releases).
+  + **Please note**: This introduces a known issue, which is currently being worked on.
+    + As you may recall from the 1.4.1 changelog, Fire Emblem: Engage requires enormous amounts of memory to support using layeredfs mods with the game.
+    + Latest GCC/newlib slightly increases malloc overhead size, which makes the previous memory increase insufficient.
+    + A general-case solution to this is in the works, which should hopefully fix the problem in a way that doesn't jinx me for the future.
++ A number of minor issues were fixed and improvements were made, including:
+  + An issue was fixed that caused system font replacement to not work on 16.0.0+.
+  + An minor accuracy issue was addressed in mesosphere's management of certain memory ranges; this issue would have had zero visible impact to the end-user.
++ General system stability improvements to enhance the user's experience.
 ## 1.5.2
 + A homebrew application (`haze`) was added for performing USB file transfer (with thanks to @liamwhite for both design and implementation).
   + `haze` is included with atmosphère, and provides access to the SD card via the PTP/MTP protocol.

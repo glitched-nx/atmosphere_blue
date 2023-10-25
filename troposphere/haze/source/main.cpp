@@ -17,6 +17,9 @@
 #include <haze/console_main_loop.hpp>
 
 int main(int argc, char **argv) {
+    /* Load device firmware version and serial number. */
+    HAZE_R_ABORT_UNLESS(haze::LoadDeviceProperties());
+
     /* Run the application. */
     haze::ConsoleMainLoop::RunApplication();
 
