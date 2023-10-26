@@ -13,9 +13,5 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 #pragma once
-#include <stratosphere/gc/impl/gc_types.hpp>
-#include <stratosphere/gc/impl/gc_gc_crypto.hpp>
-#include <stratosphere/gc/impl/gc_embedded_data_holder.hpp>
-#include <stratosphere/gc/gc.hpp>
+#include <stratosphere/fat/fat_file_system.hpp>
