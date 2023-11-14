@@ -53,7 +53,7 @@ dist: dist-no-debug
 	cp $(CURRENT_DIRECTORY)/troposphere/daybreak/daybreak.elf $(DIST_DIR)/daybreak.elf
 	cp $(CURRENT_DIRECTORY)/troposphere/haze/haze.elf $(DIST_DIR)/haze.elf
 	cp $(CURRENT_DIRECTORY)/troposphere/reboot_to_payload/reboot_to_payload.elf $(DIST_DIR)/reboot_to_payload.elf
-	cd $(DIST_DIR); zip -r ../atmosphere-$(ATMOSPHERE_VERSION)-debug.zip ./*; cd ../;
+	cd $(DIST_DIR); zip -qr ../atmosphere-$(ATMOSPHERE_VERSION)-debug.zip ./*; cd ../;
 	rm -rf $(DIST_DIR)
 
 dist-no-debug: package3 $(CURRENT_DIRECTORY)/$(ATMOSPHERE_OUT_DIR)
@@ -73,8 +73,6 @@ dist-no-debug: package3 $(CURRENT_DIRECTORY)/$(ATMOSPHERE_OUT_DIR)
 	cp config_templates/override_config.ini $(DIST_DIR)/atmosphere/config_templates/override_config.ini
 	cp config_templates/system_settings.ini $(DIST_DIR)/atmosphere/config_templates/system_settings.ini
 	cp config_templates/exosphere.ini $(DIST_DIR)/atmosphere/config_templates/exosphere.ini
-	mkdir -p config_templates/kip_patches
-	cp -r config_templates/kip_patches $(DIST_DIR)/atmosphere/kip_patches
 	cp -r config_templates/hbl_html $(DIST_DIR)/atmosphere/hbl_html
 	mkdir -p $(DIST_DIR)/stratosphere_romfs/atmosphere/contents/0100000000000008
 	mkdir -p $(DIST_DIR)/stratosphere_romfs/atmosphere/contents/010000000000000d
@@ -109,7 +107,7 @@ dist-no-debug: package3 $(CURRENT_DIRECTORY)/$(ATMOSPHERE_OUT_DIR)
 	cp troposphere/reboot_to_payload/reboot_to_payload.nro $(DIST_DIR)/switch/reboot_to_payload.nro
 	cp troposphere/daybreak/daybreak.nro $(DIST_DIR)/switch/daybreak.nro
 	cp troposphere/haze/haze.nro $(DIST_DIR)/switch/haze.nro
-	cd $(DIST_DIR); zip -r ../atmosphere-$(ATMOSPHERE_VERSION).zip ./*; cd ../;
+	cd $(DIST_DIR); zip -qr ../atmosphere-$(ATMOSPHERE_VERSION).zip ./*; cd ../;
 	rm -rf $(DIST_DIR)
 	cp fusee/$(ATMOSPHERE_BOOT_OUT_DIR)/fusee.bin $(CURRENT_DIRECTORY)/$(ATMOSPHERE_OUT_DIR)/fusee.bin
 
