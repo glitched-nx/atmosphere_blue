@@ -22,7 +22,7 @@
 #include "ldr_patcher.hpp"
 #include "ldr_process_creation.hpp"
 #include "ldr_ro_manager.hpp"
-#include "./oc/oc_loader.hpp"
+//#include "./oc/oc_loader.hpp"
 
 namespace ams::ldr {
 
@@ -83,8 +83,8 @@ namespace ams::ldr {
         NsoHeader g_nso_headers[Nso_Count];
 
         /* Pcv/Ptm check cache. */
-        bool g_is_pcv;
-        bool g_is_ptm;
+//        bool g_is_pcv;
+//        bool g_is_ptm;
 
         Result ValidateProgramVersion(ncm::ProgramId program_id, u32 version) {
             /* No version verification is done before 8.1.0. */
@@ -250,15 +250,23 @@ namespace ams::ldr {
             R_UNLESS(meta->aci->program_id <= meta->acid->program_id_max, ldr::ResultInvalidProgramId());
 
             /* Check if nca is pcv or ptm */
-            g_is_pcv = meta->aci->program_id == ncm::SystemProgramId::Pcv;
-            g_is_ptm = meta->aci->program_id == ncm::SystemProgramId::Ptm;
+//            g_is_pcv = meta->aci->program_id == ncm::SystemProgramId::Pcv;
+//            g_is_ptm = meta->aci->program_id == ncm::SystemProgramId::Ptm;
 
             /* Validate the kernel capabilities. */
             R_TRY(TestCapability(static_cast<const util::BitPack32 *>(meta->acid_kac), meta->acid->kac_size / sizeof(util::BitPack32), static_cast<const util::BitPack32 *>(meta->aci_kac), meta->aci->kac_size / sizeof(util::BitPack32)));
 
             /* If we have data to validate, validate it. */
             if (meta->check_verification_data) {
-                const bool is_signature_valid = true;
+                const u8 *sig         = code_verification_data.signature;
+                const size_t sig_size = sizeof(code_verification_data.signature);
+                const u8 *mod         = static_cast<u8 *>(meta->modulus);
+                const size_t mod_size = crypto::Rsa2048PssSha256Verifier::ModulusSize;
+                const u8 *exp         = fssystem::GetAcidSignatureKeyPublicExponent();
+                const size_t exp_size = fssystem::AcidSignatureKeyPublicExponentSize;
+                const u8 *hsh         = code_verification_data.target_hash;
+                const size_t hsh_size = sizeof(code_verification_data.target_hash);
+                const bool is_signature_valid = crypto::VerifyRsa2048PssSha256WithHash(sig, sig_size, mod, mod_size, exp, exp_size, hsh, hsh_size);
 
                 /* If the signature check fails, we need to check if this is allowable. */
                 if (!is_signature_valid) {
@@ -565,10 +573,10 @@ namespace ams::ldr {
                 LocateAndApplyIpsPatchesToModule(nso_header->module_id, map_address, nso_size);
 
                 /* Apply pcv and ptm patches. */
-                if (g_is_pcv)
-                    oc::pcv::Patch(map_address, nso_size);
-                if (g_is_ptm)
-                    oc::ptm::Patch(map_address, nso_size);
+//                if (g_is_pcv)
+//                    oc::pcv::Patch(map_address, nso_size);
+//                if (g_is_ptm)
+//                    oc::ptm::Patch(map_address, nso_size);
             }
 
             /* Set permissions. */
