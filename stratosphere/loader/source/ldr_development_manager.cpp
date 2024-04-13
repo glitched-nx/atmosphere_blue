@@ -46,7 +46,7 @@ namespace ams::ldr {
     }
 
     bool IsDevelopmentForAcidProductionCheck() {
-        return g_development_for_acid_production_check;
+        return true;
     }
 
     bool IsDevelopmentForAntiDowngradeCheck() {
