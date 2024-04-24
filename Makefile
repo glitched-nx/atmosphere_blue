@@ -42,4 +42,14 @@ clean-all: $(foreach config,$(ATMOSPHERE_BUILD_CONFIGS),clean-$(config))
 kefir:
 	cd libraries/libstratosphere && $(MAKE) -j12 clean && cd ../../stratosphere/ams_mitm && $(MAKE) -j12 clean && cd ../.. && $(MAKE) -j12
 
+clear:
+	$(MAKE) clean -j12
+	$(MAKE) -j12
+
+oc-loader:
+	git checkout oc
+	git -C stratosphere/loader diff --quiet master || (git -C stratosphere/loader checkout master && git -C stratosphere/loader pull)
+	$(MAKE) -C stratosphere/loader -j12
+	cp stratosphere/loader/out/nintendo_nx_arm64_armv8a/release/loader.kip /mnt/f/git/dev/_kefir/oc/ovrlck
+
 .PHONY: all clean clean-all kefir-version $(foreach config,$(ATMOSPHERE_BUILD_CONFIGS), $(config) clean-$(config))
