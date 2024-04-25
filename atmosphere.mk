@@ -22,21 +22,15 @@ dist-no-debug: package3 $(CURRENT_DIRECTORY)/$(ATMOSPHERE_OUT_DIR)
 	mkdir $(DIST_DIR)
 	mkdir $(DIST_DIR)/atmosphere
 	mkdir $(DIST_DIR)/switch
-	mkdir -p $(DIST_DIR)/atmosphere/fatal_errors
 	mkdir -p $(DIST_DIR)/atmosphere/config_templates
 	mkdir -p $(DIST_DIR)/atmosphere/config
-	mkdir -p $(DIST_DIR)/atmosphere/flags
 	mkdir -p $(DIST_DIR)/bootloader/payloads
 	mkdir -p $(DIST_DIR)/switch/daybreak
-	mkdir -p $(DIST_DIR)/atmosphere/kip_patches
 	cp fusee/$(ATMOSPHERE_BOOT_OUT_DIR)/package3 $(DIST_DIR)/atmosphere/package3
 	cp config_templates/stratosphere.ini $(DIST_DIR)/atmosphere/config_templates/stratosphere.ini
 	cp config_templates/override_config.ini $(DIST_DIR)/atmosphere/config_templates/override_config.ini
 	cp config_templates/system_settings.ini $(DIST_DIR)/atmosphere/config_templates/system_settings.ini
 	cp config_templates/exosphere.ini $(DIST_DIR)/atmosphere/config_templates/exosphere.ini
-	mkdir -p config_templates/kip_patches
-	cp -r config_templates/kip_patches $(DIST_DIR)/atmosphere/kip_patches
-	cp -r config_templates/hbl_html $(DIST_DIR)/atmosphere/hbl_html
 	mkdir -p $(DIST_DIR)/stratosphere_romfs/atmosphere/contents/0100000000000008
 	mkdir -p $(DIST_DIR)/stratosphere_romfs/atmosphere/contents/010000000000000d
 	mkdir -p $(DIST_DIR)/stratosphere_romfs/atmosphere/contents/0100000000000017
@@ -69,6 +63,7 @@ dist-no-debug: package3 $(CURRENT_DIRECTORY)/$(ATMOSPHERE_OUT_DIR)
 	rm -r $(DIST_DIR)/stratosphere_romfs
 	cp troposphere/daybreak/daybreak.nro $(DIST_DIR)/switch/daybreak/daybreak.nro
 	cp fusee/$(ATMOSPHERE_BOOT_OUT_DIR)/fusee.bin $(DIST_DIR)/bootloader/payloads/fusee.bin
+	python utilities/insert_splash_screen.py ~/dev/_kefir/kefir/atmosphere/splash.png $(DIST_DIR)/atmosphere/package3
 	cd $(DIST_DIR); ls; rm -rf ../../../../../atmosphere-$(ATMOSPHERE_VERSION).zip; ls
 	cd $(DIST_DIR); zip -r ../../../../../atmosphere-$(ATMOSPHERE_VERSION).zip ./*; cd ../;
 	rm -rf $(DIST_DIR)
