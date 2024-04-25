@@ -413,7 +413,7 @@ namespace dbk {
         const float button_y = y + TitleGap + SubTextHeight + VerticalGap * 2.0f + (R_FAILED(m_rc) ? SubTextHeight : 0.0f);
         const float button_width = (WindowWidth - HorizontalInset * 2.0f) / 2.0f - ButtonHorizontalGap;
         this->AddButton(BackButtonId, "Back", x + HorizontalInset, button_y, button_width, ButtonHeight);
-        this->AddButton(ContinueButtonId, "Continue", x + HorizontalInset + button_width + ButtonHorizontalGap, button_y, button_width, ButtonHeight);
+        this->AddButton(ContinueButtonId, "Install", x + HorizontalInset + button_width + ButtonHorizontalGap, button_y, button_width, ButtonHeight);
         this->SetButtonSelected(ContinueButtonId, true);
     }
 
