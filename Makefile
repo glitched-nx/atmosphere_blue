@@ -1,5 +1,5 @@
 ATMOSPHERE_BUILD_CONFIGS :=
-all: nx_release oc
+all: nx_release oc 8gb
 clean: clean-nx_release
 
 THIS_MAKEFILE     := $(abspath $(lastword $(MAKEFILE_LIST)))
@@ -51,6 +51,13 @@ oc:
 	git -C stratosphere/loader diff --quiet master || git -C stratosphere/loader pull origin master
 	$(MAKE) -C stratosphere/loader -j12
 	cp stratosphere/loader/out/nintendo_nx_arm64_armv8a/release/loader.kip /mnt/f/git/dev/_kefir/kefir/config/uberhand/packages/oc/atmosphere/kips/kefir.kip
+	git checkout master
+
+8gb:
+	git checkout 8gb
+	git -C libraries/libexosphere/source/fuse diff --quiet master || git -C libraries/libexosphere/source/fuse pull origin master
+	$(MAKE) -C fusee -j12
+	cp fusee/out/nintendo_nx_arm_armv4t/release/package3 /mnt/f/git/dev/_kefir/8gb/package3
 	git checkout master
 
 .PHONY: all clean clean-all kefir-version $(foreach config,$(ATMOSPHERE_BUILD_CONFIGS), $(config) clean-$(config))
