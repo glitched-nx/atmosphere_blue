@@ -55,21 +55,8 @@ namespace ams::ldr {
             R_UNLESS(npdm->magic == Npdm::Magic, ldr::ResultInvalidMeta());
 
             /* Validate flags. */
-            u32 mask;
-            if (hos::GetVersion() >= hos::Version_11_0_0) {
-                /* 11.0.0 added bit 5 = "DisableDeviceAddressSpaceMerge". */
-                mask = ~0x3F;
-            } else if (hos::GetVersion() >= hos::Version_7_0_0) {
-                /* 7.0.0 added bit 4 = "UseOptimizedMemory" */
-                mask = ~0x1F;
-            } else {
-                mask = ~0xF;
-            }
-
-            /* We set the "DisableDeviceAddressSpaceMerge" bit on all versions, so be permissive with it. */
-            mask &= ~0x20;
-
-            R_UNLESS(!(npdm->flags & mask), ldr::ResultInvalidMeta());
+            constexpr u32 InvalidMetaFlagMask = 0x80000000;
+            R_UNLESS(!(npdm->flags & InvalidMetaFlagMask), ldr::ResultInvalidMeta());
 
             /* Validate Acid extents. */
             R_TRY(ValidateSubregion(sizeof(Npdm), size, npdm->acid_offset, npdm->acid_size, sizeof(Acid)));
@@ -90,8 +77,8 @@ namespace ams::ldr {
             }
 
             /* Validate that the acid version is correct. */
-            constexpr u8 MinimumValueForAcid209 = 14; /* TODO: What is the actual meaning of this value? */
-            if (acid->unknown_209 < MinimumValueForAcid209) {
+            constexpr u8 SupportedSdkMajorVersion = ams::svc::ConvertToSdkMajorVersion(ams::svc::SupportedKernelMajorVersion);
+            if (acid->unknown_209 < SupportedSdkMajorVersion) {
                 R_UNLESS(acid->version == 0,     ldr::ResultInvalidMeta());
                 R_UNLESS(acid->unknown_209 == 0, ldr::ResultInvalidMeta());
             }
@@ -166,7 +153,10 @@ namespace ams::ldr {
     }
 
     /* API. */
-    Result LoadMeta(Meta *out_meta, const ncm::ProgramLocation &loc, const cfg::OverrideStatus &status) {
+    Result LoadMeta(Meta *out_meta, const ncm::ProgramLocation &loc, const cfg::OverrideStatus &status, PlatformId platform, bool unk_unused) {
+        /* Set the cached program id back to zero. */
+        g_cached_program_id = {};
+
         /* Try to load meta from file. */
         fs::FileHandle file;
         R_TRY(fs::OpenFile(std::addressof(file), AtmosphereMetaPath, fs::OpenMode_Read));
@@ -248,9 +238,9 @@ namespace ams::ldr {
         R_SUCCEED();
     }
 
-    Result LoadMetaFromCache(Meta *out_meta, const ncm::ProgramLocation &loc, const cfg::OverrideStatus &status) {
+    Result LoadMetaFromCache(Meta *out_meta, const ncm::ProgramLocation &loc, const cfg::OverrideStatus &status, PlatformId platform) {
         if (g_cached_program_id != loc.program_id || g_cached_override_status != status) {
-            R_RETURN(LoadMeta(out_meta, loc, status));
+            R_RETURN(LoadMeta(out_meta, loc, status, platform, false));
         }
         *out_meta = g_meta_cache.meta;
         R_SUCCEED();
