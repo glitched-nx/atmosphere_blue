@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - evaron-master
+      - feature-integration
     paths-ignore:
       - 'Dockerfile'
 
