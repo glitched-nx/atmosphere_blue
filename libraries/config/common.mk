@@ -233,7 +233,7 @@ endif
 #---------------------------------------------------------------------------------
 export ATMOSPHERE_GIT_BRANCH   := $(shell git symbolic-ref --short HEAD)
 
-export ATMOSPHERE_GIT_REVISION := BLUE_$(shell cat /c/msys64/home/TEKNO/_blue/version)
+export ATMOSPHERE_GIT_REVISION := BLUE EDITION $(shell cat /c/msys64/home/.blue/version)
 
 export ATMOSPHERE_GIT_HASH := $(shell git rev-parse --short=16 HEAD)
 
