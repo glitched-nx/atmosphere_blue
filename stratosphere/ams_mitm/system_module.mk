@@ -7,8 +7,6 @@ include $(dir $(abspath $(lastword $(MAKEFILE_LIST))))/../../libraries/config/te
 
 ATMOSPHERE_SYSTEM_MODULE_TARGETS := kip
 
-export ATMOSPHERE_GIT_REVISION := BLUE EDITION $(shell cat /c/msys64/home/.blue/version)
-
 #---------------------------------------------------------------------------------
 # no real need to edit anything past this point unless you need to add additional
 # rules for different file extensions
