@@ -892,8 +892,11 @@ namespace dbk {
                         g_use_exfat = true;
                     }
 
-                    /* Create the next menu. */
-                    std::shared_ptr<Menu> next_menu = std::make_shared<ChooseResetMenu>(g_current_menu);
+                    /* Set the reset to factory settings flag to false by default. */
+                    g_reset_to_factory = false;
+
+                    /* Create the install update menu. */
+                    std::shared_ptr<Menu> next_menu = std::make_shared<InstallUpdateMenu>(g_current_menu);
 
                     /* Warn the user if they're updating with exFAT supposed to be supported but not present/corrupted. */
                     if (m_update_info.exfat_supported && R_FAILED(m_validation_info.exfat_result)) {
