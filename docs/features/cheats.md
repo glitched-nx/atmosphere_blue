@@ -1,7 +1,9 @@
 # Cheats
+
 Atmosphère supports Action-Replay style cheat codes, with cheats loaded off of the SD card.
 
 ## Cheat Loading Process
+
 By default, Atmosphère will do the following when deciding whether to attach to a new application process:
 
 + Retrieve information about the new application process from `pm` and `loader`.
@@ -26,6 +28,7 @@ By default, all cheat codes listed in the loaded .txt file will be toggled on. T
 Users may use homebrew programs to toggle cheats on and off at runtime via the cheat manager's service API.
 
 ## Cheat Code Compatibility
+
 Atmosphère manages cheat code through the execution of a small, custom virtual machine. Care has been taken to ensure that Atmosphère's cheat code format is fully backwards compatible with the pre-existing cheat code format, though new features have been added and bugs in the pre-existing cheat code applier have been fixed. Here is a short summary of the changes from the pre-existing format:
 
 + A number of bugs were fixed in the processing of conditional instructions.
@@ -38,14 +41,17 @@ Atmosphère manages cheat code through the execution of a small, custom virtual 
 + The pre-existing implementation did not correctly synchronize with the application process, and thus would cause heavy lag under certain circumstances (especially around loading screens). This has been fixed in Atmosphère's implementation.
 
 ## Cheat Code Format
+
 The following provides documentation of the instruction format for the virtual machine used to manage cheat codes.
 
 Typically, instruction type is encoded in the upper nybble of the first instruction u32.
 
 ### Code Type 0x0: Store Static Value to Memory
+
 Code type 0x0 allows writing a static value to a memory address.
 
 #### Encoding
+
 `0TMR00AA AAAAAAAA VVVVVVVV (VVVVVVVV)`
 
 + T: Width of memory write (1, 2, 4, or 8 bytes).
@@ -57,11 +63,13 @@ Code type 0x0 allows writing a static value to a memory address.
 ---
 
 ### Code Type 0x1: Begin Conditional Block
+
 Code type 0x1 performs a comparison of the contents of memory to a static value.
 
 If the condition is not met, all instructions until the appropriate End or Else conditional block terminator are skipped.
 
 #### Encoding
+
 `1TMC00AA AAAAAAAA VVVVVVVV (VVVVVVVV)`
 
 + T: Width of memory write (1, 2, 4, or 8 bytes).
@@ -71,6 +79,7 @@ If the condition is not met, all instructions until the appropriate End or Else 
 + V: Value to compare to.
 
 #### Conditions
+
 + 1: >
 + 2: >=
 + 3: <
@@ -81,11 +90,13 @@ If the condition is not met, all instructions until the appropriate End or Else 
 ---
 
 ### Code Type 0x2: End Conditional Block
+
 Code type 0x2 marks the end of a conditional block (started by Code Type 0x1 or Code Type 0x8).
 
 When an Else is executed, all instructions until the appropriate End conditional block terminator are skipped.
 
 #### Encoding
+
 `2X000000`
 
 + X: End type (0 = End, 1 = Else).
@@ -93,15 +104,18 @@ When an Else is executed, all instructions until the appropriate End conditional
 ---
 
 ### Code Type 0x3: Start/End Loop
+
 Code type 0x3 allows for iterating in a loop a fixed number of times.
 
 #### Start Loop Encoding
+
 `300R0000 VVVVVVVV`
 
 + R: Register to use as loop counter.
 + V: Number of iterations to loop.
 
 #### End Loop Encoding
+
 `310R0000`
 
 + R: Register to use as loop counter.
@@ -109,9 +123,11 @@ Code type 0x3 allows for iterating in a loop a fixed number of times.
 ---
 
 ### Code Type 0x4: Load Register with Static Value
+
 Code type 0x4 allows setting a register to a constant value.
 
 #### Encoding
+
 `400R0000 VVVVVVVV VVVVVVVV`
 
 + R: Register to use.
@@ -120,9 +136,11 @@ Code type 0x4 allows setting a register to a constant value.
 ---
 
 ### Code Type 0x5: Load Register with Memory Value
+
 Code type 0x5 allows loading a value from memory into a register, either using a fixed address or by dereferencing the destination register.
 
 #### Load From Fixed Address Encoding
+
 `5TMR00AA AAAAAAAA`
 
 + T: Width of memory read (1, 2, 4, or 8 bytes).
@@ -131,6 +149,7 @@ Code type 0x5 allows loading a value from memory into a register, either using a
 + A: Immediate offset to use from memory region base.
 
 #### Load from Register Address Encoding
+
 `5T0R10AA AAAAAAAA`
 
 + T: Width of memory read (1, 2, 4, or 8 bytes).
@@ -140,9 +159,11 @@ Code type 0x5 allows loading a value from memory into a register, either using a
 ---
 
 ### Code Type 0x6: Store Static Value to Register Memory Address
+
 Code type 0x6 allows writing a fixed value to a memory address specified by a register.
 
 #### Encoding
+
 `6T0RIor0 VVVVVVVV VVVVVVVV`
 
 + T: Width of memory write (1, 2, 4, or 8 bytes).
@@ -155,11 +176,13 @@ Code type 0x6 allows writing a fixed value to a memory address specified by a re
 ---
 
 ### Code Type 0x7: Legacy Arithmetic
+
 Code type 0x7 allows performing arithmetic on registers.
 
 However, it has been deprecated by Code type 0x9, and is only kept for backwards compatibility.
 
 #### Encoding
+
 `7T0RC000 VVVVVVVV`
 
 + T: Width of arithmetic operation (1, 2, 4, or 8 bytes).
@@ -168,6 +191,7 @@ However, it has been deprecated by Code type 0x9, and is only kept for backwards
 + V: Value to use for arithmetic operation.
 
 #### Arithmetic Types
+
 + 0: Addition
 + 1: Subtraction
 + 2: Multiplication
@@ -177,9 +201,11 @@ However, it has been deprecated by Code type 0x9, and is only kept for backwards
 ---
 
 ### Code Type 0x8: Begin Keypress Conditional Block
+
 Code type 0x8 enters or skips a conditional block based on whether a key combination is pressed.
 
 #### Encoding
+
 `8kkkkkkk`
 
 + k: Keypad mask to check against, see below.
@@ -187,6 +213,7 @@ Code type 0x8 enters or skips a conditional block based on whether a key combina
 Note that for multiple button combinations, the bitmasks should be ORd together.
 
 #### Keypad Values
+
 Note: This is the direct output of `hidKeysDown()`.
 
 + 0000001: A
@@ -219,9 +246,11 @@ Note: This is the direct output of `hidKeysDown()`.
 ---
 
 ### Code Type 0x9: Perform Arithmetic
+
 Code type 0x9 allows performing arithmetic on registers.
 
 #### Register Arithmetic Encoding
+
 `9TCRS0s0`
 
 + T: Width of arithmetic operation (1, 2, 4, or 8 bytes).
@@ -231,6 +260,7 @@ Code type 0x9 allows performing arithmetic on registers.
 + s: Register to use as right-hand operand.
 
 #### Immediate Value Arithmetic Encoding
+
 `9TCRS100 VVVVVVVV (VVVVVVVV)`
 
 + T: Width of arithmetic operation (1, 2, 4, or 8 bytes).
@@ -240,6 +270,7 @@ Code type 0x9 allows performing arithmetic on registers.
 + V: Value to use as right-hand operand.
 
 #### Arithmetic Types
+
 + 0: Addition
 + 1: Subtraction
 + 2: Multiplication
@@ -254,9 +285,11 @@ Code type 0x9 allows performing arithmetic on registers.
 ---
 
 ### Code Type 0xA: Store Register to Memory Address
+
 Code type 0xA allows writing a register to memory.
 
 #### Encoding
+
 `ATSRIOxa (aaaaaaaa)`
 
 + T: Width of memory write (1, 2, 4, or 8 bytes).
@@ -268,6 +301,7 @@ Code type 0xA allows writing a register to memory.
 + a: Value used as offset when O is 2, 4 or 5.
 
 #### Offset Types
+
 + 0: No Offset
 + 1: Use Offset Register
 + 2: Use Fixed Offset
@@ -278,11 +312,13 @@ Code type 0xA allows writing a register to memory.
 ---
 
 ### Code Type 0xB: Reserved
+
 Code Type 0xB is currently reserved for future use.
 
 ---
 
 ### Code Type 0xC-0xF: Extended-Width Instruction
+
 Code Types 0xC-0xF signal to the VM to treat the upper two nybbles of the first dword as instruction type, instead of just the upper nybble.
 
 This reserves an additional 64 opcodes for future use.
@@ -290,11 +326,13 @@ This reserves an additional 64 opcodes for future use.
 ---
 
 ### Code Type 0xC0: Begin Register Conditional Block
+
 Code type 0xC0 performs a comparison of the contents of a register and another value. This code support multiple operand types, see below.
 
 If the condition is not met, all instructions until the appropriate conditional block terminator are skipped.
 
 #### Encoding
+
 ```
 C0TcSX##
 C0TcS0Ma aaaaaaaa
@@ -317,6 +355,7 @@ C0TcS5X0
 + V: Value to compare to (operand type 4).
 
 #### Operand Type
+
 + 0: Memory Base + Relative Offset
 + 1: Memory Base + Offset Register
 + 2: Register + Relative Offset
@@ -325,6 +364,7 @@ C0TcS5X0
 + 5: Other Register
 
 #### Conditions
+
 + 1: >
 + 2: >=
 + 3: <
@@ -335,9 +375,11 @@ C0TcS5X0
 ---
 
 ### Code Type 0xC1: Save or Restore Register
+
 Code type 0xC1 performs saving or restoring of registers.
 
 #### Encoding
+
 `C10D0Sx0`
 
 + D: Destination index.
@@ -345,6 +387,7 @@ Code type 0xC1 performs saving or restoring of registers.
 + x: Operand Type, see below.
 
 #### Operand Type
+
 + 0: Restore register
 + 1: Save register
 + 2: Clear saved value
@@ -353,15 +396,18 @@ Code type 0xC1 performs saving or restoring of registers.
 ---
 
 ### Code Type 0xC2: Save or Restore Register with Mask
+
 Code type 0xC2 performs saving or restoring of multiple registers using a bitmask.
 
 #### Encoding
+
 `C2x0XXXX`
 
 + x: Operand Type, see below.
 + X: 16-bit bitmask, bit i == save or restore register i.
 
 #### Operand Type
+
 + 0: Restore register
 + 1: Save register
 + 2: Clear saved value
@@ -370,9 +416,11 @@ Code type 0xC2 performs saving or restoring of multiple registers using a bitmas
 ---
 
 ### Code Type 0xC3: Read or Write Static Register
+
 Code type 0xC3 reads or writes a static register with a given register.
 
 #### Encoding
+
 `C3000XXx`
 
 + XX: Static register index, 0x00 to 0x7F for reading or 0x80 to 0xFF for writing.
@@ -381,6 +429,7 @@ Code type 0xC3 reads or writes a static register with a given register.
 ---
 
 ### Code Type 0xF0: Double Extended-Width Instruction
+
 Code Type 0xF0 signals to the VM to treat the upper three nybbles of the first dword as instruction type, instead of just the upper nybble.
 
 This reserves an additional 16 opcodes for future use.
@@ -388,25 +437,31 @@ This reserves an additional 16 opcodes for future use.
 ---
 
 ### Code Type 0xFF0: Pause Process
+
 Code type 0xFF0 pauses the current process.
 
 #### Encoding
+
 `FF0?????`
 
 ---
 
 ### Code Type 0xFF1: Resume Process
+
 Code type 0xFF1 resumes the current process.
 
 #### Encoding
+
 `FF1?????`
 
 ---
 
 ### Code Type 0xFFF: Debug Log
+
 Code type 0xFFF writes a debug log to the SD card under the folder `/atmosphere/cheat_vm_logs/`.
 
 #### Encoding
+
 ```
 FFFTIX##
 FFFTI0Ma aaaaaaaa
@@ -426,6 +481,7 @@ FFFTI4X0
 + X: Value Register (operand type 4).
 
 #### Operand Type
+
 + 0: Memory Base + Relative Offset
 + 1: Memory Base + Offset Register
 + 2: Register + Relative Offset
