@@ -919,7 +919,7 @@ namespace dbk {
         const float x = g_screen_width / 2.0f - WindowWidth / 2.0f;
         const float y = g_screen_height / 2.0f - WindowHeight / 2.0f;
 
-        DrawWindow(vg, "FW-Update Info", x, y, WindowWidth, WindowHeight);
+        DrawWindow(vg, "Infos zum Firmwareupdate", x, y, WindowWidth, WindowHeight);
         DrawTextBackground(vg, x + HorizontalInset, y + TitleGap, WindowWidth - HorizontalInset * 2.0f, TextAreaHeight);
         DrawTextBlock(vg, m_log_buffer, x + HorizontalInset + TextHorizontalInset, y + TitleGap + TextVerticalInset, WindowWidth - (HorizontalInset + TextHorizontalInset) * 2.0f, TextAreaHeight - TextVerticalInset * 2.0f);
 
