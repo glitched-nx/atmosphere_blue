@@ -413,7 +413,7 @@ namespace dbk {
         const float button_y = y + TitleGap + SubTextHeight + VerticalGap * 2.0f + (R_FAILED(m_rc) ? SubTextHeight : 0.0f);
         const float button_width = (WindowWidth - HorizontalInset * 2.0f) / 2.0f - ButtonHorizontalGap;
         this->AddButton(BackButtonId, "Zurück", x + HorizontalInset, button_y, button_width, ButtonHeight);
-        this->AddButton(ContinueButtonId, "Fortfahren", x + HorizontalInset + button_width + ButtonHorizontalGap, button_y, button_width, ButtonHeight);
+        this->AddButton(ContinueButtonId, "Update starten...", x + HorizontalInset + button_width + ButtonHorizontalGap, button_y, button_width, ButtonHeight);
         this->SetButtonSelected(ContinueButtonId, true);
     }
 
@@ -450,7 +450,7 @@ namespace dbk {
         const float x = g_screen_width / 2.0f - WindowWidth / 2.0f;
         const float y = g_screen_height / 2.0f - WindowHeight / 2.0f;
 
-        this->AddButton(InstallButtonId, "Installieren", x + HorizontalInset, y + TitleGap, WindowWidth - HorizontalInset * 2, ButtonHeight);
+        this->AddButton(InstallButtonId, "Weiter zum Update!", x + HorizontalInset, y + TitleGap, WindowWidth - HorizontalInset * 2, ButtonHeight);
         this->AddButton(ExitButtonId, "Verlassen", x + HorizontalInset, y + TitleGap + ButtonHeight + VerticalGap, WindowWidth - HorizontalInset * 2, ButtonHeight);
         this->SetButtonSelected(InstallButtonId, true);
     }
@@ -739,7 +739,7 @@ namespace dbk {
         const float x = g_screen_width / 2.0f - WindowWidth / 2.0f;
         const float y = g_screen_height / 2.0f - WindowHeight / 2.0f;
 
-        DrawWindow(vg, "Ordner mit Firmware auswählen.", x, y, WindowWidth, WindowHeight);
+        DrawWindow(vg, "Ordner mit dem Update auswählen.", x, y, WindowWidth, WindowHeight);
         DrawTextBackground(vg, x + TextBackgroundOffset, y + TitleGap, WindowWidth - TextBackgroundOffset * 2.0f, (FileRowHeight + FileRowGap) * MaxFileRows + FileRowGap);
 
         nvgSave(vg);
