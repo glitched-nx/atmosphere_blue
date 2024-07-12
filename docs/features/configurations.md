@@ -1,125 +1,144 @@
-# Configurations
-Atmosphère provides a variety of customizable configurations to better adjust to users' needs.
+# Konfigurationen
+
+Atmosphère bietet eine Vielzahl anpassbarer Konfigurationen, um besser auf die Bedürfnisse der Benutzer einzugehen.
 
 ## stratosphere.ini
-This is the configuration file used by fusée for configuring user-space system modules.
-This file is located under the `/atmosphere/config/` folder on your SD card and a default template can be found inside the `/atmosphere/config_templates/` folder.
 
-### Configuring "nogc" Protection
-"nogc" is a feature provided by fusée-secondary which disables the Nintendo Switch's Game Card reader. Its purpose is to prevent the reader from being updated when the console has been updated, without burning fuses, from a lower firmware version. More specifically, from firmware versions 4.0.0 or 9.0.0 which introduced updates to the Game Card reader's firmware. By default, Atmosphère will protect the Game Card reader automatically, but you are free to change it.
+Dies ist die Konfigurationsdatei, die von fusée zur Konfiguration der Benutzerbereichs-Systemmodule verwendet wird. Diese Datei befindet sich im Ordner `/atmosphere/config/` auf deiner SD-Karte und eine Standardvorlage findest du im Ordner `/atmosphere/config_templates/`.
 
-To change its functionality, add the following line to the `stratosphere` section and change the value of `X` according to the following list:
-```
+### Konfiguration des "nogc"-Schutzes
+
+"nogc" ist eine von fusée-secondary bereitgestellte Funktion, die den Game Card-Reader der Nintendo Switch deaktiviert. Ihr Zweck ist es, zu verhindern, dass der Leser aktualisiert wird, wenn die Konsole ohne das Brennen von Sicherungen von einer niedrigeren Firmware-Version aktualisiert wurde. Genauer gesagt, von den Firmware-Versionen 4.0.0 oder 9.0.0, die Updates für die Firmware des Game Card-Readers eingeführt haben. Standardmäßig schützt Atmosphère den Game Card-Reader automatisch, aber du kannst dies nach Belieben ändern.
+
+Um die Funktionalität zu ändern, füge die folgende Zeile in den Abschnitt `stratosphere` ein und ändere den Wert von `X` entsprechend der folgenden Liste:
+
+```ini
 [stratosphere]
 nogc = X
 ```
+
+```csharp
+1 = nogc erzwingen, sodass Atmosphère den Game Card-Reader immer deaktiviert.
+0 = nogc erzwingen, sodass Atmosphère den Game Card-Reader immer aktiviert.
 ```
-1 = force-enable nogc, so Atmosphère will always disable the Game Card reader.
-0 = force-disable nogc, so Atmosphère will always enable the Game Card reader.
-```
 
-## Adding a Custom Boot Splashscreen
-Atmosphère provides its own default splashscreen which is displayed at boot time. However, this can be replaced at will.
+## Hinzufügen eines benutzerdefinierten Startbildschirms
 
-Boot splash screens must be 1280x720 resolution.
+Atmosphère bietet einen eigenen Standardsplashscreen, der beim Start angezeigt wird. Dieser kann jedoch nach Belieben ersetzt werden.
 
-A script can be found inside the source tree (`/utilities/insert_splash_screen.py`) for inserting a custom splash screen into a release binary.
+Start-Splashscreens müssen eine Auflösung von 1280x720 haben.
 
-To do so, execute the following command on the script:
-`python insert_splash_screen.py <path to your splash screen image> <path to /atmosphere/package3 on your SD card>`
+Ein Skript zum Einfügen eines benutzerdefinierten Splashscreens in eine Release-Binary befindet sich im Quellbaum (`/utilities/insert_splash_screen.py`).
+
+Um dies zu tun, führe den folgenden Befehl für das Skript aus:
+`python insert_splash_screen.py <Pfad zu deinem Splashscreen-Bild> <Pfad zu /atmosphere/package3 auf deiner SD-Karte>`
 
 ## emummc.ini
-This is the configuration file used for the [emummc](../components/emummc.md) component.
-This file is located under the `/emuMMC/` folder on your SD card.
 
-Please refer to the project's repository [here](https://github.com/m4xw/emuMMC) for detailed instructions and documentation.
+Dies ist die Konfigurationsdatei für die [emummc](../components/emummc.md)-Komponente. Diese Datei befindet sich im Ordner `/emuMMC/` auf deiner SD-Karte.
+
+Bitte ziehe das Repository des Projekts [hier](https://github.com/m4xw/emuMMC) für detaillierte Anweisungen und Dokumentation zu Rate.
 
 ## exosphere.ini
-This is the configuration file used by exosphère.
-This file is located in the root of your SD card and a default template can be found inside the `/atmosphere/config_templates/` folder.
 
-### Configuring Debugging Modes
-By default, Atmosphère signals to the Horizon kernel that debugging is enabled while leaving usermode debugging disabled, but this can cause undesirable side-effects. If you wish to change this behavior, go to the `exosphere` section and change the value of `X` according to the following list.
-```
+Dies ist die Konfigurationsdatei, die von exosphère verwendet wird. Diese Datei befindet sich im Stammverzeichnis deiner SD-Karte und eine Standardvorlage findest du im Ordner `/atmosphere/config_templates/`.
+
+### Konfiguration der Debugging-Modi
+
+Standardmäßig signalisiert Atmosphère dem Horizon-Kernel, dass Debugging aktiviert ist, lässt jedoch das Debugging im Benutzermodus deaktiviert, was unerwünschte Nebeneffekte verursachen kann. Wenn du dieses Verhalten ändern möchtest, gehe zum Abschnitt `exosphere` und ändere den Wert von `X` gemäß der folgenden Liste.
+
+```ini
 [exosphere]
 debugmode = X
 debugmode_user = X
 ```
-```
-1 = enable
-0 = disable
+
+```csharp
+1 = aktivieren
+0 = deaktivieren
 ```
 
-### Blanking PRODINFO
-Atmosphère provides a way for users to blank their factory installed calibration data (known as PRODINFO) in either emulated or system eMMC environments. You can find more detailed information on this inside the respective template file. Usage of this configuration is not encouraged.
+### PRODINFO leeren
+
+Atmosphère bietet eine Möglichkeit für Benutzer, ihre werkseitig installierten Kalibrierungsdaten (bekannt als PRODINFO) in entweder emulierten oder System-eMMC-Umgebungen zu leeren. Detaillierte Informationen dazu findest du in der jeweiligen Vorlagendatei. Die Nutzung dieser Konfiguration wird nicht empfohlen.
 
 ## override_config.ini
-This file is located under the `/atmosphere/config/` folder on your SD card and a default template can be found inside the `/atmosphere/config_templates/` folder.
 
-### Overrides Format
-Overrides are parsed from the `/atmosphere/config/override_config.ini` file during the boot process.
+Diese Datei befindet sich im Ordner `/atmosphere/config/` auf deiner SD-Karte und eine Standardvorlage findest du im Ordner `/atmosphere/config_templates/`.
 
-By default `override_config.ini` is not configured. It can be used to select the behavior of certain buttons and bind them to functionalities such as launching the Homebrew Menu or enabling the cheat code manager.
+### Overrides-Format
 
-You can modify the override_key entries in `override_config.ini` with this list of valid buttons:
-| Formal Name | .ini Name |
-| ----------- | --------- |
-| A Button    | A         |
-| B Button    | B         |
-| X Button    | X         |
-| Y Button    | Y         |
-| Left Stick  | LS        |
-| Right Stick | RS        |
-| L Button    | L         |
-| R Button    | R         |
-| ZL Button   | ZL        |
-| ZR Button   | ZR        |
-| + Button    | PLUS      |
-| - Button    | MINUS     |
-| Left Dpad   | DLEFT     |
-| Up Dpad     | DUP       |
-| Right Dpad  | DRIGHT    |
-| Down Dpad   | DDOWN     |
-| SL Button   | SL        |
-| SR Button   | SR        |
+Overrides werden während des Bootvorgangs aus der Datei `/atmosphere/config/override_config.ini` analysiert.
 
-To invert the behavior of the override key, place an exclamation point in front of whatever button you wish to use. It will launch the actual game while holding down that button, instead of going into the Homebrew Menu. For example, `override_key=!R` will run the game only while holding down R when launching it, otherwise it will boot into the Homebrew Menu. Afterwards you may reinsert your SD card into your Switch and boot into Atmosphère as you normally would. You should now be able to boot into the Homebrew Menu by launching your designated program of choice.
+Standardmäßig ist `override_config.ini` nicht konfiguriert. Es kann verwendet werden, um das Verhalten bestimmter Tasten auszuwählen und sie an Funktionen wie das Starten des Homebrew-Menüs oder das Aktivieren des Cheat-Code-Managers zu binden.
+
+Du kannst die override_key-Einträge in `override_config.ini` mit dieser Liste gültiger Tasten ändern:
+| Formeller Name | .ini-Name |
+| -------------- | --------- |
+| A-Taste        | A         |
+| B-Taste        | B         |
+| X-Taste        | X         |
+| Y-Taste        | Y         |
+| Linker Stick   | LS        |
+| Rechter Stick  | RS        |
+| L-Taste        | L         |
+| R-Taste        | R         |
+| ZL-Taste       | ZL        |
+| ZR-Taste       | ZR        |
+| + Taste        | PLUS      |
+| - Taste        | MINUS     |
+| Linkes D-Pad   | DLEFT     |
+| Oberes D-Pad   | DUP       |
+| Rechtes D-Pad  | DRIGHT    |
+| Unteres D-Pad  | DDOWN     |
+| SL-Taste       | SL        |
+| SR-Taste       | SR        |
+
+Um das Verhalten der Override-Taste zu invertieren, setze ein Ausrufezeichen vor die Taste, die du verwenden möchtest. Es wird das eigentliche Spiel gestartet, während diese Taste gedrückt gehalten wird, anstatt ins Homebrew-Menü zu gehen. Zum Beispiel wird `override_key=!R` das Spiel nur starten, wenn R gedrückt gehalten wird, ansonsten wird es ins Homebrew-Menü booten. Danach kannst du deine SD-Karte wieder in deine Switch einlegen und wie gewohnt in Atmosphère booten. Du solltest jetzt in der Lage sein, ins Homebrew-Menü zu booten, indem du dein ausgewähltes Programm startest.
 
 ## system_settings.ini
-This file is located under the `/atmosphere/config/` folder on your SD card and a default template can be found inside the `/atmosphere/config_templates/` folder.
 
-### Settings Format
-Atmosphère provides a way to override the firmware debug settings used by the system. These can be parsed from the `/atmosphere/config/system_settings.ini` file during the boot process. This file is a normal ini file, with some specific interpretations.
+Diese Datei befindet sich im Ordner `/atmosphere/config/` auf deiner SD-Karte und eine Standardvorlage findest du im Ordner `/atmosphere/config_templates/`.
 
-The standard representation of a setting's identifier takes the form `name!key`. This is represented within `system_settings.ini` as a section `name`, with an entry `key`. For example:
-```
+### Einstellungen-Format
+
+Atmosphère bietet eine Möglichkeit, die von der Firmware verwendeten Debug-Einstellungen des Systems zu überschreiben. Diese können während des Bootvorgangs aus der Datei `/atmosphere/config/system_settings.ini` analysiert werden. Diese Datei ist eine normale ini-Datei mit einigen spezifischen Interpretationen.
+
+Die Standarddarstellung eines Einstellungsschlüssels hat die Form `name!key`. Dies wird innerhalb von `system_settings.ini` als Abschnitt `name` mit einem Eintrag `key` dargestellt. Zum Beispiel:
+
+```ini
 [name]
 key = ...
 ```
 
-Settings can have variable types (strings, integral values, byte arrays, etc). To accommodate this, `system_settings.ini` must store values as a `type_identifier!value_store` pair. A number of different types are supported, with identifiers detailed below.
-Please note that a malformed value string will cause a fatal error to occur on boot. A full example of a custom setting is given below (setting `eupld!upload_enabled = 0`), for posterity:
-```
+Einstellungen können variable Typen haben (Strings, integrale Werte, Byte-Arrays, etc.). Um dies zu berücksichtigen, muss `system_settings.ini` Werte als `type_identifier!value_store`-Paar speichern. Eine Reihe verschiedener Typen wird unterstützt, mit den unten aufgeführten Identifikatoren.
+Bitte beachte, dass eine fehlerhafte Wertzeichenfolge beim Booten einen fatalen Fehler verursacht. Ein vollständiges Beispiel für eine benutzerdefinierte Einstellung wird unten gegeben (Einstellung `eupld!upload_enabled = 0`), zur Nachahmung:
+
+```ini
 [eupld]
 upload_enabled = u8!0x0
 ```
 
-#### Supported Types
+#### Unterstützte Typen
+
 * Strings
-    * Type identifiers: `str`, `string`
-    * The value string is used directly as the setting, with null terminator appended.
-* Integral types
-    * Type identifiers: `u8`, `u16`, `u32`, `u64`
-    * The value string is parsed via a call to `strtoul(value, NULL, 0)`.
-    * Setting bitwidth is determined by the identifier (8 for 1 byte, 16 for 2 bytes, and so on).
-* Raw bytes
-    * Type identifiers: `hex`, `bytes`
-    * The value string is parsed as a hexadecimal string.
-        * The value string must be of even length, or a fatal error will be thrown on parse.
+  * Typ-Identifikatoren: `str`, `string`
+  * Die Wertzeichenfolge wird direkt als Einstellung verwendet, mit angehängtem Null-Terminierer.
+* Integrale Typen
+  * Typ-Identifikatoren: `u8`, `u16`, `u32`, `u64`
+  * Die Wertzeichenfolge wird über einen Aufruf von `strtoul(value, NULL, 0)` analysiert.
+  * Die Bitbreite der Einstellung wird durch den Identifikator bestimmt (8 für 1 Byte, 16 für 2 Bytes und so weiter).
+* Rohbytes
+  * Typ-Identifikatoren: `hex`, `bytes`
+  * Die Wertzeichenfolge wird als Hexadezimalzeichenfolge analysiert.
+    * Die Wertzeichenfolge muss eine gerade Länge haben, sonst wird beim Analysieren ein fataler Fehler ausgegeben.
 
-## Content Specific Flags
-Atmosphère supports customizing CFW behavior based on the presence of `flags` on the SD card.
+## Inhaltsspezifische Flags
 
-The following flags are supported on a per-program basis, by placing `<flag_name>.flag` inside `/atmosphere/contents/<program_id>/flags/`:
-+ `boot2`, which indicates that the program should be launched during the `boot2` process.
-+ `redirect_save`, which indicates that the program wants its savedata to be redirected to the SD card.
+Atmosphère unterstützt die Anpassung des CFW-Verhaltens basierend auf der Anwesenheit von `flags` auf der SD-Karte.
+
+Die folgenden Flags werden auf Programmbasis unterstützt, indem `<flag_name>.flag` im Ordner `/atmosphere/contents/<program_id>/flags/` platziert wird:
+
+* `boot2`, was anzeigt, dass das Programm während des `boot2`-Prozesses gestartet werden soll.
+
+* `redirect_save`, was anzeigt, dass das Programm möchte, dass seine gespeicherten Daten auf die SD-Karte umgeleitet werden.

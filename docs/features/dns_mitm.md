@@ -1,53 +1,56 @@
 # DNS.mitm
-As of 0.18.0, atmosphère provides a mechanism for redirecting DNS resolution requests.
 
-By default, atmosphère redirects resolution requests for official telemetry servers, redirecting them to a loopback address.
+Ab Version 0.18.0 bietet Atmosphère einen Mechanismus zur Umleitung von DNS-Auflösungsanfragen.
 
-## Hosts files
+Standardmäßig leitet Atmosphère Auflösungsanfragen für offizielle Telemetrie-Server um und leitet sie an eine Loopback-Adresse weiter.
 
-DNS.mitm can be configured through the usage of a slightly-extended `hosts` file format, which is parsed only once on system startup.
+## Hosts-Dateien
 
-In particular, hosts files parsed by DNS.mitm have the following extensions to the usual format:
-+ `*` is treated as a wildcard character, matching any collection of 0 or more characters wherever it occurs in a hostname.
-+ `%` is treated as a stand-in for the value of `nsd!environment_identifier`. This is always `lp1`, on production devices.
+DNS.mitm kann durch die Verwendung eines leicht erweiterten `hosts`-Dateiformats konfiguriert werden, das nur einmal beim Systemstart analysiert wird.
 
-If multiple entries in a host file match a domain, the last-defined match is used.
+Insbesondere haben Hosts-Dateien, die von DNS.mitm analysiert werden, die folgenden Erweiterungen zum üblichen Format:
 
-Please note that homebrew may trigger a hosts file re-parse by sending the extension IPC command 65000 ("AtmosphereReloadHostsFile") to a connected `sfdnsres` session.
++ `*` wird als Platzhalterzeichen behandelt und passt überall dort, wo es in einem Hostnamen vorkommt, auf eine beliebige Sammlung von 0 oder mehr Zeichen.
++ `%` wird als Stellvertreter für den Wert von `nsd!environment_identifier` behandelt. Dies ist auf Produktionsgeräten immer `lp1`.
 
-### Hosts file selection
+Wenn mehrere Einträge in einer Host-Datei mit einer Domäne übereinstimmen, wird die zuletzt definierte Übereinstimmung verwendet.
 
-Atmosphère will try to read hosts from the following file paths, in order, stopping once it successfully performs a file read:
+Bitte beachten Sie, dass Homebrew eine erneute Analyse der Hosts-Datei auslösen kann, indem es den Erweiterungs-IPC-Befehl 65000 ("AtmosphereReloadHostsFile") an eine verbundene `sfdnsres`-Sitzung sendet.
 
-+ (emummc only) `/atmosphere/hosts/emummc_%04lx.txt`, formatted with the emummc's id number (see `emummc.ini`).
-+ (emummc only) `/atmosphere/hosts/emummc.txt`.
-+ (sysmmc only) `/atmosphere/hosts/sysmmc.txt`.
+### Auswahl der Hosts-Datei
+
+Atmosphère versucht, Hosts aus den folgenden Dateipfaden zu lesen, in der Reihenfolge, und stoppt, sobald ein Dateilesen erfolgreich durchgeführt wurde:
+
++ (nur emummc) `/atmosphere/hosts/emummc_%04lx.txt`, formatiert mit der ID-Nummer des emummc (siehe `emummc.ini`).
++ (nur emummc) `/atmosphere/hosts/emummc.txt`.
++ (nur sysmmc) `/atmosphere/hosts/sysmmc.txt`.
 + `/atmosphere/hosts/default.txt`
 
-If `/atmosphere/hosts/default.txt` does not exist, atmosphère will create it to contain the defaults.
+Wenn `/atmosphere/hosts/default.txt` nicht existiert, erstellt Atmosphère diese Datei mit den Standardeinstellungen.
 
-### Atmosphère defaults
+### Atmosphère-Standardeinstellungen
 
-By default, atmosphère's default redirections are parsed **in addition to** the contents of the loaded hosts file.
+Standardmäßig werden die Standardumleitungen von Atmosphère **zusätzlich zu** den Inhalten der geladenen Hosts-Datei analysiert.
 
-This is equivalent to thinking of the loaded hosts file as having the atmosphère defaults prepended to it.
+Dies entspricht dem Gedanken, dass die geladene Hosts-Datei die Atmosphère-Standardeinstellungen vorangestellt hat.
 
-This setting is considered desirable, because it minimizes the telemetry risks if a user forgets to update a custom hosts file on a system update which changes the telemetry servers.
+Diese Einstellung wird als wünschenswert angesehen, da sie die Telemetrierisiken minimiert, falls ein Benutzer vergisst, eine benutzerdefinierte Hosts-Datei bei einem Systemupdate zu aktualisieren, das die Telemetrie-Server ändert.
 
-This behavior can be opted-out from by setting `atmosphere!add_defaults_to_dns_hosts = u8!0x0` in `system_settings.ini`.
+Dieses Verhalten kann durch Setzen von `atmosphere!add_defaults_to_dns_hosts = u8!0x0` in `system_settings.ini` deaktiviert werden.
 
-The current default redirections are:
+Die aktuellen Standardumleitungen sind:
 
 ```
-# Nintendo telemetry servers
+# Nintendo-Telemetrie-Server
 127.0.0.1 receive-%.dg.srv.nintendo.net receive-%.er.srv.nintendo.net
 ```
 
-## Debugging
+## Fehlerbehebung
 
-On startup (or on hosts file re-parse), DNS.mitm will log both what hosts file it selected and the contents of all redirections it parses to `/atmosphere/logs/dns_mitm_startup.log`.
+Beim Start (oder bei einer erneuten Analyse der Hosts-Datei) protokolliert DNS.mitm sowohl die ausgewählte Hosts-Datei als auch den Inhalt aller analysierten Umleitungen in `/atmosphere/logs/dns_mitm_startup.log`.
 
-In addition, if the user sets `atmosphere!enable_dns_mitm_debug_log = u8!0x1` in `system_settings.ini`, DNS.mitm will log all requests to GetHostByName/GetAddrInfo to `/atmosphere/logs/dns_mitm_debug.log`. All redirections will be noted when they occur.
+Zusätzlich protokolliert DNS.mitm, wenn der Benutzer `atmosphere!enable_dns_mitm_debug_log = u8!0x1` in `system_settings.ini` setzt, alle Anfragen an GetHostByName/GetAddrInfo in `/atmosphere/logs/dns_mitm_debug.log`. Alle Umleitungen werden notiert, wenn sie auftreten.
 
-## Opting-out of DNS.mitm entirely
-If you wish to disable DNS.mitm entirely, `system_settings.ini` can be edited to set `atmosphere!enable_dns_mitm = u8!0x0`.
+## Vollständiges Opt-out von DNS.mitm
+
+Wenn du DNS.mitm vollständig deaktivieren möchtest, kannst du `system_settings.ini` bearbeiten und `atmosphere!enable_dns_mitm = u8!0x0` setzen.
