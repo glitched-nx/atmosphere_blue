@@ -1,19 +1,18 @@
-![Banner](img/banner.png?raw=true)
-=====
+![Banner](img/banner_readme.png?raw=true)
 
-#### *atmosphère blue* ist eine Fork des original Atmosphère, einer Custom Firmware 'CFW' für die Nintendo Switch, die sich in ständiger Anpassung an die Original Firmware 'OFW' befindet.
+***atmosphere blue*** ist ein modifizierter Fork des Originals [**Atmosphere NX**](https://github.com/Atmosphere-NX/Atmosphere). Es enthält einige essentielle Features des bekannten [**Kefirosphere**](https://github.com/rashevskyv/Kefirosphere) aus dem ***Kefir*** CFW Pack.
 
-Komponenten
-=====
+Um ***atmosphere blue*** bei neuen Commits und Releases leichter aktuell halten zu können, habe ich bewusst einen Fork des Originals erstellt und dann bestimmte Commits aus **Kefirosphere** mittels 'Cherry Picks' einzeln und sorgfältig herausgepickt und in ***atmosphere blue*** integriert, anstatt Kefirosphere direkt zu forken.
 
-### *atmosphère blue* - Features:
+### Speziell integriert in atmosphere blue:
 
-* Eingebettete Sigpatches
-* Entfernen der ACID-Signaturprüfung zur Verwendung von Homebrew ohne Patches
-* Entfernen des Systemprotokollierens, um das Überladen der Speicherkarte zu verhindern und übermäßigen Gebrauch zu vermeiden
+* Sigpatches in ***atmosphere blue*** eingebettet. 
+* Entfernte ACID-Signaturprüfung zur Verwendung von Homebrew ohne Patches.
+* Entfernte Systemprotokollierung, um das Überladen der Speicherkarte zu verhindern und übermäßigen Gebrauch zu vermeiden.
 
-Komponenten
-=====
+----
+
+#### Komponenten
 
 Atmosphère besteht aus mehreren Komponenten, von denen jede eine andere Komponente des Systems ersetzt/modifiziert:
 
