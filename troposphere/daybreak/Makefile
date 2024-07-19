@@ -48,7 +48,7 @@ ROMFS		:=	romfs
 OUT_SHADERS	:=	shaders
 
 APP_TITLE     := Daybreak
-APP_AUTHOR    := AtmoNX/glitched_nx
+APP_AUTHOR    := DEmod_by_glitched_nx
 APP_VERSION   := 1.0.0_DE
 
 #---------------------------------------------------------------------------------
