@@ -739,7 +739,7 @@ namespace dbk {
         const float x = g_screen_width / 2.0f - WindowWidth / 2.0f;
         const float y = g_screen_height / 2.0f - WindowHeight / 2.0f;
 
-        DrawWindow(vg, "Wähle den Firmware-Ordner für das Up-/Downgrade, z.B. Firmware 1x.x.x", x, y, WindowWidth, WindowHeight);
+        DrawWindow(vg, "Wähle den Firmware-Ordner, z.B. Firmware 1x.x.x", x, y, WindowWidth, WindowHeight);
         DrawTextBackground(vg, x + TextBackgroundOffset, y + TitleGap, WindowWidth - TextBackgroundOffset * 2.0f, (FileRowHeight + FileRowGap) * MaxFileRows + FileRowGap);
 
         nvgSave(vg);
@@ -766,7 +766,7 @@ namespace dbk {
 
         /* Add buttons. */
         this->AddButton(BackButtonId, "Zurück", x + HorizontalInset, y + WindowHeight - BottomInset - ButtonHeight, button_width, ButtonHeight);
-        this->AddButton(ContinueButtonId, "Up-/Downgrade jetzt starten", x + HorizontalInset + button_width + ButtonHorizontalGap, y + WindowHeight - BottomInset - ButtonHeight, button_width, ButtonHeight);
+        this->AddButton(ContinueButtonId, "Up-/Downgrade starten", x + HorizontalInset + button_width + ButtonHorizontalGap, y + WindowHeight - BottomInset - ButtonHeight, button_width, ButtonHeight);
         this->SetButtonEnabled(BackButtonId, false);
         this->SetButtonEnabled(ContinueButtonId, false);
 
