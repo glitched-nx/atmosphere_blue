@@ -1,30 +1,20 @@
 ![Banner](img/banner_readme.png?raw=true)
 
-***atmosphere blue*** ist ein modifizierter Fork des Originals [**Atmosphere NX**](https://github.com/Atmosphere-NX/Atmosphere). Es enthält einige essentielle Features des bekannten [**Kefirosphere**](https://github.com/rashevskyv/Kefirosphere) aus dem ***Kefir*** CFW Pack.
+[***atmosphère blue***](https://github.com/glitched-nx/atmosphere_blue) ist ein modifizierter Fork des Originals [**Atmosphère NX**](https://github.com/Atmosphere-NX/Atmosphere). Es enthält einige essentielle Features des bekannten [**Kefirosphere**](https://github.com/rashevskyv/Kefirosphere) aus dem ***Kefir*** CFW Pack.
 
-Um ***atmosphere blue*** bei neuen Commits und Releases leichter aktuell halten zu können, habe ich bewusst einen Fork des Originals erstellt und dann bestimmte Commits aus **Kefirosphere** mittels 'Cherry Picks' einzeln und sorgfältig herausgepickt und in ***atmosphere blue*** integriert, anstatt Kefirosphere direkt zu forken.
+### Änderungen in ***atmosphère blue***:
 
-### Speziell integriert in atmosphere blue:
+* Sigpatches sind in den ***atmosphère blue*** Code integriert worden.
+* ACID-Signaturprüfung entfernt, um Homebrews ohne Patches verwenden zu können.
+* Das Atmosphère NX - System Logging wurde entfernt, um die SD-Karte vor übermäßigem Verschleiß zu schützen.
+* ***Daybreak Quick*** - Eine modifizierte deutschsprachige Version von Daybreak, die ein Up-/Downgrading der Firmware in nur drei Schritten ermöglicht.
+  - Die ursprüngliche Option, zwischen exFat- und Fat32-Treibern oder beiden zu wählen, wurde hier intern auf die Installation beider Treiber gesetzt und wird somit übersprungen.
+  - Die Option "Factory Reset" wird hier ebenfalls übersprungen.
+* [***hbmenu blue***](https://github.com/glitched-nx/hbmenu_blue) - Eine deutschsprachige Mod mit blauer GUI.
 
-* Sigpatches in ***atmosphere blue*** eingebettet. 
-* Entfernte ACID-Signaturprüfung zur Verwendung von Homebrew ohne Patches.
-* Entfernte Systemprotokollierung, um das Überladen der Speicherkarte zu verhindern und übermäßigen Gebrauch zu vermeiden.
-
-----
-
-#### Komponenten
-
-Atmosphère besteht aus mehreren Komponenten, von denen jede eine andere Komponente des Systems ersetzt/modifiziert:
-
-* Fusée: First-stage Loader, verantwortlich für das Laden und Validieren von Stage 2 (benutzerdefiniertes TrustZone) sowie Package2 (Kernel/FIRM-Sysmodule) und deren Patchen nach Bedarf. Dies ersetzt alle Funktionen, die normalerweise im Package1loader/NX Bootloader enthalten sind.
-    * Sept: Payload, das verwendet wird, um die Unterstützung für die Laufzeitschlüsselableitung auf 7.0.0 zu ermöglichen.
-* Exosphère: Angepasste TrustZone, um einen angepassten Secure Monitor auszuführen.
-* Thermosphère: EL2 EmuNAND-Unterstützung, d.h. das Sichern und Verwenden von virtualisierten/umgeleiteten NAND-Images.
-* Stratosphère: Benutzerdefinierte Sysmodule, sowohl im Rosalina-Stil zur Erweiterung des Kernels/Anbieten neuer Funktionen als auch im Stil der Loader-Neuimplementierung, um wichtige Systemaktionen einzuhaken.
-* Troposphère: Anwendungsbezogene Horizon OS-Patches, die verwendet werden, um wünschenswerte CFW-Funktionen zu implementieren.
-
-Lizenzierung
-=====
+---
+---
+## Lizenzierung 
 
 Diese Software ist unter den Bedingungen der GPLv2 lizenziert, mit Ausnahmen für spezifische Projekte, die unten aufgeführt sind.
 
