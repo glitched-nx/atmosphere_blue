@@ -1,46 +1,48 @@
 ![Banner](img/banner_readme.png?raw=true)
 
-[***atmosphère blue***](https://github.com/glitched-nx/atmosphere_blue) ist ein modifizierter Fork des Originals [**Atmosphère NX**](https://github.com/Atmosphere-NX/Atmosphere). Es enthält einige essentielle Features des bekannten [**Kefirosphere**](https://github.com/rashevskyv/Kefirosphere) aus dem ***Kefir*** CFW Pack.
+![GitHub License](https://img.shields.io/github/license/Atmosphere-NX/Atmosphere?style=for-the-badge&labelColor=%230626b3&color=%230d3ce6) ![DL](https://img.shields.io/github/downloads/glitched-nx/atmosphere_blue/latest/total?style=for-the-badge&logoSize=auto&labelColor=%230626b3&color=%230d3ce6)
 
-### Änderungen in ***atmosphère blue***:
+### [***atmosphère blue***](https://github.com/glitched-nx/atmosphere_blue) Eine modifizierte Version des originalen [***Atmosphère***](https://github.com/Atmosphere-NX/Atmosphere)
 
-* Sigpatches sind in den ***atmosphère blue*** Code integriert worden.
-* ACID-Signaturprüfung entfernt, um Homebrews ohne Patches verwenden zu können.
-* Das Atmosphère NX - System Logging wurde entfernt, um die SD-Karte vor übermäßigem Verschleiß zu schützen.
-* ***Daybreak Quick*** - Eine modifizierte deutschsprachige Version von Daybreak, die ein Up-/Downgrading der Firmware in nur drei Schritten ermöglicht.
-  - Die ursprüngliche Option, zwischen exFat- und Fat32-Treibern oder beiden zu wählen, wurde hier intern auf die Installation beider Treiber gesetzt und wird somit übersprungen.
-  - Die Option "Factory Reset" wird hier ebenfalls übersprungen.
-* [***hbmenu blue***](https://github.com/glitched-nx/hbmenu_blue) - Eine deutschsprachige Mod mit blauer GUI.
+* **Integrierte Sigpatches** [*]()
+* ACID-Signaturprüfung entfernt, um Homebrews ohne Patches verwenden zu können. [*]()
+* Das Atmosphère NX System Logging wurde entfernt, um die SD-Karte vor übermäßigem Verschleiß zu schonen. [*]()
+* [***hbmenu blue***](https://github.com/glitched-nx/hbmenu_blue) Eine modifizierte deutschsprachige Version von [***nx-hbmenu***](https://github.com/switchbrew/nx-hbmenu).
+* [***Daybreak Quick***]()  Eine modifizierte deutschsprachige Version von Daybreak, die ein Up-/Downgrading der Firmware in nur drei Schritten ermöglicht.
+  * Die ursprüngliche Option, zwischen exFat- und Fat32-Treibern oder beiden zu wählen, wurde hier intern auf die Installation beider Treiber gesetzt und wird somit übersprungen.
+  * Die Option "Factory Reset" wird hier ebenfalls übersprungen.
+
+** Die entsprechenden Codeabschnitte für die oben genannten Modifikationen stammen größtenteils aus [Kefirosphere](https://github.com/rashevskyv/Kefirosphere). Ich wollte keinen Fork eines Forks mehr erstellen, weil ich nicht alles übernehmen wollte. Das habe ich zuerst so versucht, aber ich verlor irgendwann den Überblick und hatte erst keine Lust mehr weiterzumachen. Als ich wenig später mitbekommen habe, dass der Entwickler [**rashevskyv**](https://github.com/rashevskyv) ein Repack seines Kefirosphere vorgenommen hat, habe ich noch einmal begonnen. Ich habe einen sauberen Fork des originalen Atmosphère erstellt und die Commits mit **Git Graph** mittels **Cherry Picks** nach und nach herausgepickt und mit dem zuvor erstellten Fork erfolgreich zusammengeführt.
 
 ---
+
+## Licensing
+
+This software is licensed under the terms of the GPLv2, with exemptions for specific projects noted below.
+
+You can find a copy of the license in the [LICENSE file](LICENSE).
+
+Exemptions:
+
+* [Nintendo](https://github.com/Nintendo) is exempt from GPLv2 licensing and may (at its option) instead license any source code authored for the Atmosphère project under the Zero-Clause BSD license.
+
+## Credits
+
+Atmosphère is currently being developed and maintained by **SciresM**, **TuxSH**, **hexkyz**, and **fincs** in no particular order, we credit the following for their invaluable contributions:
+
+* **switchbrew** for the [libnx](https://github.com/switchbrew/libnx) project and the extensive [documentation, research and tool development](http://switchbrew.org) pertaining to the Nintendo Switch.
+* **devkitPro** for the [devkitA64](https://devkitpro.org/) toolchain and libnx support.
+* **ReSwitched Team** for additional [documentation, research and tool development](https://reswitched.github.io/) pertaining to the Nintendo Switch.
+* **ChaN** for the [FatFs](http://elm-chan.org/fsw/ff/00index_e.html) module.
+* **Marcus Geelnard** for the [bcl-1.2.0](https://sourceforge.net/projects/bcl/files/bcl/bcl-1.2.0) library.
+* **naehrwert** and **st4rk** for the original [hekate](https://github.com/nwert/hekate) project and its hwinit code base.
+* **CTCaer** for the continued [hekate](https://github.com/CTCaer/hekate) project's fork and the [minerva_tc](https://github.com/CTCaer/minerva_tc) project.
+* **m4xw** for development of the [emuMMC](https://github.com/m4xw/emummc) project.
+* **Riley** for suggesting "Atmosphere" as a Horizon OS reimplementation+customization project name.
+* **hedgeberg** for research and hardware testing.
+* **lioncash** for code cleanup and general improvements.
+* **jaames** for designing and providing Atmosphère's graphical resources.
+* Everyone who submitted entries for Atmosphère's [splash design contest](https://github.com/Atmosphere-NX/Atmosphere-splashes).
+* **All those who actively contribute to the Atmosphère repository.**
+
 ---
-## Lizenzierung 
-
-Diese Software ist unter den Bedingungen der GPLv2 lizenziert, mit Ausnahmen für spezifische Projekte, die unten aufgeführt sind.
-
-Eine Kopie der Lizenz findest du in der [LICENSE-Datei](LICENSE).
-
-Ausnahmen:
-
-* [Nintendo](https://github.com/Nintendo) ist von der GPLv2-Lizenzierung ausgenommen und kann (nach eigener Wahl) den für das Atmosphère-Projekt erstellten Quellcode stattdessen unter der Zero-Clause BSD-Lizenz lizenzieren.
-
-Credits
-=====
-
-Atmosphère wird derzeit von __SciresM__, __TuxSH__, __hexkyz__ und __fincs__ entwickelt und gepflegt.<br>
-In keiner bestimmten Reihenfolge danken wir den folgenden Personen für ihre unschätzbaren Beiträge:
-
-* __switchbrew__ für das [libnx](https://github.com/switchbrew/libnx)-Projekt und die umfangreiche [Dokumentation, Forschung und Tool-Entwicklung](http://switchbrew.org) bezüglich der Nintendo Switch.
-* __devkitPro__ für die [devkitA64](https://devkitpro.org/) Toolchain und libnx-Unterstützung.
-* __ReSwitched Team__ für zusätzliche [Dokumentation, Forschung und Tool-Entwicklung](https://reswitched.github.io/) bezüglich der Nintendo Switch.
-* __ChaN__ für das [FatFs](http://elm-chan.org/fsw/ff/00index_e.html)-Modul.
-* __Marcus Geelnard__ für die [bcl-1.2.0](https://sourceforge.net/projects/bcl/files/bcl/bcl-1.2.0)-Bibliothek.
-* __naehrwert__ und __st4rk__ für das ursprüngliche [hekate](https://github.com/nwert/hekate)-Projekt und dessen hwinit-Code-Basis.
-* __CTCaer__ für das fortgesetzte [hekate](https://github.com/CTCaer/hekate)-Projekt-Fork und das [minerva_tc](https://github.com/CTCaer/minerva_tc)-Projekt.
-* __m4xw__ für die Entwicklung des [emuMMC](https://github.com/m4xw/emummc)-Projekts.
-* __Riley__ für den Vorschlag von "Atmosphere" als Projektname für eine Horizon OS-Neuimplementierung+Anpassung.
-* __hedgeberg__ für Forschung und Hardwaretests.
-* __lioncash__ für Code-Bereinigung und allgemeine Verbesserungen.
-* __jaames__ für das Design und die Bereitstellung der grafischen Ressourcen von Atmosphère.
-* Allen, die Einträge für den [Splash-Design-Wettbewerb](https://github.com/Atmosphere-NX/Atmosphere-splashes) von Atmosphère eingereicht haben.
-* _Allen, die aktiv zum Atmosphère-Repository beitragen._
