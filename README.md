@@ -1,18 +1,28 @@
 ![Banner](img/banner_readme.png?raw=true)
 
-![GitHub License](https://img.shields.io/github/license/Atmosphere-NX/Atmosphere?style=for-the-badge&labelColor=%230626b3&color=%230d3ce6) ![DL](https://img.shields.io/github/downloads/glitched-nx/atmosphere_blue/latest/total?style=for-the-badge&logoSize=auto&labelColor=%230626b3&color=%230d3ce6)
+<p align="center">
+  <img src="https://img.shields.io/github/license/Atmosphere-NX/Atmosphere?style=for-the-badge&labelColor=%230626b3&color=%230d3ce6" alt="GitHub License">
+  <img src="https://img.shields.io/github/downloads/glitched-nx/atmosphere_blue/latest/total?style=for-the-badge&logoSize=auto&labelColor=%230626b3&color=%230d3ce6" alt="Downloads">
+</p>
 
-### [***atmosphère blue***](https://github.com/glitched-nx/atmosphere_blue) Eine modifizierte Version des originalen [***Atmosphère***](https://github.com/Atmosphere-NX/Atmosphere)
+<h3 align="center"><a href="https://github.com/glitched-nx/atmosphere_blue">atmosphère blue</a></h3>
 
-* **Integrierte Sigpatches** [*]()
-* ACID-Signaturprüfung entfernt, um Homebrews ohne Patches verwenden zu können. [*]()
-* Das Atmosphère NX System Logging wurde entfernt, um die SD-Karte vor übermäßigem Verschleiß zu schonen. [*]()
-* [***hbmenu blue***](https://github.com/glitched-nx/hbmenu_blue) Eine modifizierte deutschsprachige Version von [***nx-hbmenu***](https://github.com/switchbrew/nx-hbmenu).
+<p align="center">Eine modifizierte Version des originalen <a href="https://github.com/Atmosphere-NX/Atmosphere">Atmosphère</a></p>
+
+* **Integrierte Sigpatches** [🔗](#codeabschnitte)
+* ACID-Signaturprüfung entfernt, um Homebrews ohne Patches verwenden zu können. [🔗](#codeabschnitte)
+* Das Atmosphère NX System Logging wurde entfernt, um die SD-Karte vor übermäßigem Verschleiß zu schonen. [🔗](#codeabschnitte)
 * [***Daybreak Quick***]()  Eine modifizierte deutschsprachige Version von Daybreak, die ein Up-/Downgrading der Firmware in nur drei Schritten ermöglicht.
   * Die ursprüngliche Option, zwischen exFat- und Fat32-Treibern oder beiden zu wählen, wurde hier intern auf die Installation beider Treiber gesetzt und wird somit übersprungen.
   * Die Option "Factory Reset" wird hier ebenfalls übersprungen.
 
-** Die entsprechenden Codeabschnitte für die oben genannten Modifikationen stammen größtenteils aus [Kefirosphere](https://github.com/rashevskyv/Kefirosphere). Ich wollte keinen Fork eines Forks mehr erstellen, weil ich nicht alles übernehmen wollte. Das habe ich zuerst so versucht, aber ich verlor irgendwann den Überblick und hatte erst keine Lust mehr weiterzumachen. Als ich wenig später mitbekommen habe, dass der Entwickler [**rashevskyv**](https://github.com/rashevskyv) ein Repack seines Kefirosphere vorgenommen hat, habe ich noch einmal begonnen. Ich habe einen sauberen Fork des originalen Atmosphère erstellt und die Commits mit **Git Graph** mittels **Cherry Picks** nach und nach herausgepickt und mit dem zuvor erstellten Fork erfolgreich zusammengeführt.
+Die entsprechenden Codeabschnitte für die oben genannten Modifikationen stammen größtenteils aus [Kefirosphere](https://github.com/rashevskyv/Kefirosphere), das ebenfalls ein Fork von Atmosphère ist. Der Entwickler [**rashevskyv**](https://github.com/rashevskyv) hat in seinem Kefirosphere mit der Hilfe von DuckBill (DBI) unter anderem die Kip-Patches in Atmosphère eingebettet.
+
+Für ***atmosphère blue*** erstellte ich ebenfalls einen sauberen Fork des originalen Atmosphère und holte die entsprechenden Commits mit Hilfe von **Git Graph** mittels **Cherry Picks** nach und nach in meinen Fork und beseitigte dabei viele Konflikte manuell mit dem Editor von VS Code. Es war eine sehr mühsame Arbeit, die sich gelohnt hat.
+
+Nach mehreren Tests habe ich ***atmosphère blue*** in der ersten Version nun erfolgreich fertiggestellt.
+
+
 
 ---
 
