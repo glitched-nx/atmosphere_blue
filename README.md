@@ -5,24 +5,22 @@
   <img src="https://img.shields.io/github/downloads/glitched-nx/atmosphere_blue/latest/total?style=for-the-badge&logoSize=auto&labelColor=%230626b3&color=%230d3ce6" alt="Downloads">
 </p>
 
-<h3 align="center"><a href="https://github.com/glitched-nx/atmosphere_blue">atmosphère blue</a></h3>
+<h3 align="center"><a href="https://github.com/glitched-nx/atmosphere_blue/releases/latest">atmosphère blue</a></h3>
 
 <p align="center">Eine modifizierte Version des originalen <a href="https://github.com/Atmosphere-NX/Atmosphere">Atmosphère</a></p>
 
-* **Integrierte Sigpatches** [🔗](#codeabschnitte)
-* ACID-Signaturprüfung entfernt, um Homebrews ohne Patches verwenden zu können. [🔗](#codeabschnitte)
-* Das Atmosphère NX System Logging wurde entfernt, um die SD-Karte vor übermäßigem Verschleiß zu schonen. [🔗](#codeabschnitte)
+* **Integrierte Sigpatches**
+* ACID-Signaturprüfung entfernt, um Homebrews ohne Patches verwenden zu können.
+* Das Atmosphère NX System Logging wurde entfernt, um die SD-Karte vor übermäßigem Verschleiß zu schonen.
 * [***Daybreak Quick***]()  Eine modifizierte deutschsprachige Version von Daybreak, die ein Up-/Downgrading der Firmware in nur drei Schritten ermöglicht.
   * Die ursprüngliche Option, zwischen exFat- und Fat32-Treibern oder beiden zu wählen, wurde hier intern auf die Installation beider Treiber gesetzt und wird somit übersprungen.
   * Die Option "Factory Reset" wird hier ebenfalls übersprungen.
 
 Die entsprechenden Codeabschnitte für die oben genannten Modifikationen stammen größtenteils aus [Kefirosphere](https://github.com/rashevskyv/Kefirosphere), das ebenfalls ein Fork von Atmosphère ist. Der Entwickler [**rashevskyv**](https://github.com/rashevskyv) hat in seinem Kefirosphere mit der Hilfe von DuckBill (DBI) unter anderem die Kip-Patches in Atmosphère eingebettet.
 
-Für ***atmosphère blue*** erstellte ich ebenfalls einen sauberen Fork des originalen Atmosphère und holte die entsprechenden Commits mit Hilfe von **Git Graph** mittels **Cherry Picks** nach und nach in meinen Fork und beseitigte dabei viele Konflikte manuell mit dem Editor von VS Code. Es war eine sehr mühsame Arbeit, die sich gelohnt hat.
+Für ***atmosphère blue*** erstellte ich ebenfalls einen sauberen Fork des originalen Atmosphère und holte die entsprechenden Commits mit Hilfe von **Git Graph** mittels **Cherry Picks** nach und nach in meinen Fork und beseitigte dabei viele Konflikte manuell mit dem Editor von VS Code.
 
-Nach mehreren Tests habe ich ***atmosphère blue*** in der ersten Version nun erfolgreich fertiggestellt.
-
-
+Nach mehreren Tests habe ich [***atmosphère blue***](https://github.com/glitched-nx/atmosphere_blue/releases/latest) nun in einer ersten Version erfolgreich fertiggestellt. Ein [***Release***](https://github.com/glitched-nx/atmosphere_blue/releases/latest) wird gerade vorbereitet und in Kürze hier veröffentlicht.
 
 ---
 
@@ -54,5 +52,3 @@ Atmosphère is currently being developed and maintained by **SciresM**, **TuxSH*
 * **jaames** for designing and providing Atmosphère's graphical resources.
 * Everyone who submitted entries for Atmosphère's [splash design contest](https://github.com/Atmosphere-NX/Atmosphere-splashes).
 * **All those who actively contribute to the Atmosphère repository.**
-
----
