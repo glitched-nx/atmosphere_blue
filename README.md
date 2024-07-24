@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/github/license/Atmosphere-NX/Atmosphere?style=for-the-badge&labelColor=%230626b3&color=%230d3ce6" alt="GitHub License">
-  <img src="https://img.shields.io/github/downloads/glitched-nx/atmosphere_blue/total?style=for-the-badge&logoSize=auto&labelColor=%230626b3&color=%230d3ce6" alt="Downloads">
+  <img alt="GitHub Downloads (all assets, latest release)" src="https://img.shields.io/github/downloads/glitched-nx/atmosphere_blue/latest/total?style=for-the-badge&label=DOWNLOADS&labelColor=%230d3ce6&color=%23194afb">
 </p>
 
 <h3 align="center"><a href="https://github.com/glitched-nx/atmosphere_blue/releases/latest">atmosphère blue</a></h3>
