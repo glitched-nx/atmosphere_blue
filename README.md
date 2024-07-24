@@ -9,22 +9,31 @@
 
 <p align="center">Eine modifizierte Version des originalen <a href="https://github.com/Atmosphere-NX/Atmosphere">Atmosphère</a></p>
 
-* **Integrierte Sigpatches**
-* ACID-Signaturprüfung entfernt, um Homebrews ohne Patches verwenden zu können.
-* Das Atmosphère NX System Logging wurde entfernt, um die SD-Karte vor übermäßigem Verschleiß zu schonen.
-* [***Daybreak Quick***]()  Eine modifizierte deutschsprachige Version von Daybreak, die ein Up-/Downgrading der Firmware in nur drei Schritten ermöglicht.
-  * Die ursprüngliche Option, zwischen exFat- und Fat32-Treibern oder beiden zu wählen, wurde hier intern auf die Installation beider Treiber gesetzt und wird somit übersprungen.
-  * Die Option "Factory Reset" wird hier ebenfalls übersprungen.
+* **Integrierte Sigpatches**: Ermöglichen die Ausführung unsignierter Software.
+* **Entfernte ACID-Signaturprüfung**: Homebrews können nun ohne zusätzliche Patches verwendet werden.
+* **Deaktiviertes Atmosphère NX System Logging**: Schont die SD-Karte vor übermäßigem Verschleiß.
+* **Daybreak Quick**: Eine optimierte, deutschsprachige Version von Daybreak:
+  * Up- und Downgrading der Firmware auf drei Schritten abgeschlossen.
+  * Installation beider Treiber (exFAT und FAT32) erfolgt automatisch.
+  * Die "Factory Reset"-Option wurde entfernt.
 
-Die entsprechenden Codeabschnitte für die oben genannten Modifikationen stammen größtenteils aus [Kefirosphere](https://github.com/rashevskyv/Kefirosphere), das ebenfalls ein Fork von Atmosphère ist. Der Entwickler [**rashevskyv**](https://github.com/rashevskyv) hat in seinem Kefirosphere mit der Hilfe von DuckBill (DBI) unter anderem die Kip-Patches in Atmosphère eingebettet.
+Die meisten Codeänderungen für die oben genannten Modifikationen stammen aus [Kefirosphere](https://github.com/rashevskyv/Kefirosphere), einem weiteren Fork von Atmosphère. Der Entwickler [**rashevskyv**](https://github.com/rashevskyv) hat in Kefirosphere die Sig-Patches integriert und mit Hilfe von DuckBill (DBI) unter anderem die ACID-Signaturprüfung in Atmosphère deaktiviert.
 
-Für ***atmosphère blue*** erstellte ich ebenfalls einen sauberen Fork des originalen Atmosphère und holte die entsprechenden Commits mit Hilfe von **Git Graph** mittels **Cherry Picks** nach und nach in meinen Fork und beseitigte dabei viele Konflikte manuell mit dem Editor von VS Code.
-
-Nach mehreren Tests habe ich [***atmosphère blue***](https://github.com/glitched-nx/atmosphere_blue/releases/latest) nun in einer ersten Version erfolgreich fertiggestellt. Ein [***Release***](https://github.com/glitched-nx/atmosphere_blue/releases/latest) wird gerade vorbereitet und in Kürze hier veröffentlicht.
+Für ***atmosphère blue*** habe ich zunächst einen sauberen Fork des originalen Atmosphère erstellt und Kefirosphere als zweiten Branch hinzugefügt. Mithilfe von **Git Graph** in **VS Code** habe ich die relevanten Commits und Codeschnipsel schrittweise per **Cherry Pick** in übernommen. Dabei habe ich zahlreiche Konflikte manuell im Editor gelöst.
 
 ---
 
-## Licensing
+### Fork Licensing
+
+This project, atmosphère blue, is a fork of Atmosphere and is also licensed under GPLv2. The modifications made in this fork are subject to the same license terms.
+
+### Fork Credits
+
+* **rashevskyv** and the [Kefirosphere](https://github.com/rashevskyv/Kefirosphere) project for providing some of the code modifications used in atmosphère blue.
+
+---
+
+### [Original Atmosphère](https://github.com/Atmosphere-NX/Atmosphere) Licensing
 
 This software is licensed under the terms of the GPLv2, with exemptions for specific projects noted below.
 
@@ -34,7 +43,7 @@ Exemptions:
 
 * [Nintendo](https://github.com/Nintendo) is exempt from GPLv2 licensing and may (at its option) instead license any source code authored for the Atmosphère project under the Zero-Clause BSD license.
 
-## Credits
+### Credits
 
 Atmosphère is currently being developed and maintained by **SciresM**, **TuxSH**, **hexkyz**, and **fincs** in no particular order, we credit the following for their invaluable contributions:
 
