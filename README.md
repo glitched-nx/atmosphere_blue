@@ -1,41 +1,42 @@
-![Banner](img/banner_readme.png?raw=true)
+![Banner](https://github.com/glitched-nx/atmosphere_blue/blob/50e60e6309ba672adac98b32f0409f8c5a12248c/img/banner_readme.png?raw=true)
 
 <p align="center">
-  <img src="https://img.shields.io/github/license/Atmosphere-NX/Atmosphere?style=for-the-badge&labelColor=%23abc4ff&color=%230d3ce6" alt="GitHub License">
-  <img src="https://img.shields.io/github/downloads/glitched-nx/atmosphere_blue/total?style=for-the-badge&label=Downloads&labelColor=%23abc4ff&color=%230d3ce6" alt="GitHub Downloads">
+  <img src="https://img.shields.io/github/license/Atmosphere-NX/Atmosphere?style=plastc&labelColor=%23abc4ff&color=%230d3ce6" alt="GitHub License">
+  <img src="https://img.shields.io/github/downloads/glitched-nx/atmosphere_blue/total?plastc&label=Downloads&labelColor=%23abc4ff&color=%230d3ce6" alt="GitHub Downloads">
 </p>
 <p align="center">
-  <img alt="GitHub Tag" src="https://img.shields.io/github/v/tag/glitched-nx/atmosphere_blue?style=for-the-badge&logoSize=auto&label=atmosph%C3%A8re%20blue&labelColor=%23abc4ff&color=%230d3ce6">
+  <img alt="GitHub Tag" src="https://img.shields.io/github/v/tag/glitched-nx/atmosphere_blue?plastic&logoSize=auto&label=atmosph%C3%A8re%20blue&labelColor=%23abc4ff&color=%230d3ce6">
 </p>
 
 <p align="center">Eine modifizierte Version des originalen <a href="https://github.com/Atmosphere-NX/Atmosphere">Atmosphère</a></p>
 
-* **Integrierte Sigpatches**: Ermöglichen die Ausführung unsignierter Software.
-* **Entfernte ACID-Signaturprüfung**: Homebrews können ohne Patches verwendet werden.
-* **System-Protokollierung entfernt** Um ein Überladen der Speicherkarte und eine übermäßige Nutzung zu vermeiden.
-* **Daybreak Quick**: Eine modifizierte deutschsprachige Version von Daybreak:
+***Besonderheiten:***
+- ***Sigpatches im Code eingebettet***:
+- ***Entfernte ACID-Signaturprüfung***: Homebrews können ohne Patches verwendet werden.
+- ***System-Protokollierung entfernt*** Um ein Überladen der Speicherkarte und eine übermäßige Nutzung zu vermeiden.
+
+Die Code-Snippets für die genannten Modifikationen stammen aus [***Kefirosphere***](https://github.com/rashevskyv/Kefirosphere), einem weiteren Fork von Atmosphère. Der Entwickler [***rashevskyv***](https://github.com/rashevskyv) hat für Kefirosphere die IPS/Kip-Patches in den Code von Atmosphère integriert. Mit Hilfe von DuckBill (DBI) wurde die ACID-Signaturprüfung deaktiviert. Für **atmosphère blue** habe ich die entsprechenden Code-Snippets über die Commits mittels CherryPicks (VSCode Git Graph) übernommen.
+
+***Daybreak Quick*** Eine modifizierte deutschsprachige Version von Daybreak:
   * Up- und Downgrading der Firmware auf drei Schritten abgeschlossen.
   * Installation beider Treiber (exFAT und FAT32) erfolgt automatisch.
   * Die "Factory Reset"-Option wurde entfernt.
-
-Die meisten Codeänderungen für die oben genannten Modifikationen stammen aus [***Kefirosphere***](https://github.com/rashevskyv/Kefirosphere), einem weiteren Fork von Atmosphère. Der Entwickler [***rashevskyv***](https://github.com/rashevskyv) hat in Kefirosphere die Sigpatches integriert und mit Hilfe von DuckBill (DBI) unter anderem die ACID-Signaturprüfung in Atmosphère deaktiviert.
-
-Für ***atmosphère blue*** habe ich zunächst einen sauberen Fork des originalen Atmosphère erstellt und Kefirosphere als zweiten Branch hinzugefügt. Mithilfe von **Git Graph** in **VS Code** habe ich die relevanten Commits und Codeschnipsel schrittweise per **Cherry Pick** in übernommen. Dabei habe ich zahlreiche Konflikte manuell im Editor gelöst.
-
+    
 ---
+
 <p align="center">A modified version of the original <a href="https://github.com/Atmosphere-NX/Atmosphere">Atmosphère</a></p>
 
-* **Integrated Sigpatches**: Enable the execution of unsigned software.
-* **Removed ACID Signature Check**: Homebrews can be used without patches.
-* **System Logging Removed**: To prevent SD card overload and excessive usage.
-* **Daybreak Quick**: A modified German version of Daybreak:
-  * Firmware up- and downgrading completed in three steps.
+***Special Features:***
+- ***Sigpatches embedded in the code***:
+- ***Removed ACID signature check***: Homebrews can be used without patches.
+- ***System logging removed***: To avoid overloading the memory card and excessive usage.
+
+The code snippets for the mentioned modifications are from [***Kefirosphere***](https://github.com/rashevskyv/Kefirosphere), another fork of Atmosphère. The developer [***rashevskyv***](https://github.com/rashevskyv) integrated the IPS/Kip patches into Atmosphère's code for Kefirosphere. With the help of DuckBill (DBI), the ACID signature check was disabled. For **atmosphère blue**, I integrated the corresponding code snippets using CherryPicks (VSCode Git Graph) via the commits.
+
+***Daybreak Quick*** A modified German version of Daybreak:
+  * Upgrading and downgrading firmware completed in three steps.
   * Automatic installation of both drivers (exFAT and FAT32).
   * The "Factory Reset" option has been removed.
-
-Most code changes for the above modifications come from [***Kefirosphere***](https://github.com/rashevskyv/Kefirosphere), another fork of Atmosphère. The developer [***rashevskyv***](https://github.com/rashevskyv) integrated the sigpatches in Kefirosphere and, with the help of DuckBill (DBI), disabled the ACID signature check in Atmosphère, among other things.
-
-For ***atmosphère blue***, I first created a clean fork of the original Atmosphère and added Kefirosphere as a second branch. Using **Git Graph** in **VS Code**, I gradually incorporated the relevant commits and code snippets via **Cherry Pick**. In the process, I manually resolved numerous conflicts in the editor.
 
 ---
 
