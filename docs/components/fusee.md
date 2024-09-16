@@ -1,4 +1,15 @@
 # fusée
+fusée ist ein benutzerdefinierter Bootloader, der verwendet wird, um die Atmosphère-Umgebung zu starten.
+
+## fusée
+fusée ist das erste Stück Code von Atmosphère, das auf der Hardware ausgeführt wird.
+Es wird als eigenständiges Payload verteilt, das über RCM gestartet wird, indem die CVE-2018-6242-Schwachstelle ausgenutzt wird.
+
+Dieses Payload ist verantwortlich für die gesamte Hardware-Initialisierung auf niedriger Ebene, die für die Nintendo Switch erforderlich ist, das Einrichten des Kryptosystems, das Mounten/Emulieren des eMMC, das Injizieren/Patchen von Systemmodulen und das Starten der exosphère-Komponente.
+
+---
+
+# fusée
 fusée is a custom bootloader used to start the Atmosphère environment.
 
 ## fusée

@@ -1,4 +1,46 @@
 # ams_mitm
+Dieses Modul bietet Methoden zum Abfangen von Diensten, die von anderen Systemmodulen bereitgestellt werden. Es ist weiter unterteilt nach dem Dienst, den es anvisiert.
+
+## bpc_mitm
+bpc_mitm ermöglicht das Abfangen von Anfragen an die Stromsteuerungsdienste. Es fängt derzeit ab:
++ `am` Systemmodul (um die Neustart-/Power-Tasten im Overlay-Menü abzufangen)
++ `fatal` Systemmodul (um die Payload-Neustartlogik erheblich zu vereinfachen)
++ [nx-hbloader](https://github.com/switchbrew/nx-hbloader) (damit Homebrew diese Funktion nutzen kann)
+
+## fs_mitm
+fs_mitm ermöglicht das Abfangen von Dateisystemoperationen. Es kann jede Anfrage an das Dateisystem verweigern, verzögern, ersetzen oder umleiten. Es ermöglicht LayeredFS, das den Austausch von Spielassets erlaubt.
+
+## hid_mitm
+hid_mitm ermöglicht das Abfangen von Anfragen an Controller-Gerätedienste. Es ist derzeit standardmäßig deaktiviert. Wenn aktiviert, fängt es ab:
++ [nx-hbloader](https://github.com/switchbrew/nx-hbloader) (um zu verhindern, dass Homebrew aufgrund einer in der Vergangenheit eingeführten Änderung neu kompiliert werden muss)
+
+Beachte, dass hid_mitm derzeit veraltet ist und möglicherweise vollständig entfernt wird.
+
+## ns_mitm
+ns_mitm ermöglicht das Abfangen von Anfragen an Anwendungssteuerungsdienste. Es fängt derzeit ab:
++ Web-Applets (um das Starten des nx-hbloader-Webbrowsers zu erleichtern)
+
+## set_mitm
+set_mitm ermöglicht das Abfangen von Anfragen an den System-Einstellungsdienst. Es fängt derzeit ab:
++ `ns` Systemmodul und Spiele (um das Überschreiben von Spielregionen zu ermöglichen)
++ Alle Firmware-Debug-Einstellungsanfragen (um die Änderung von Systemeinstellungen zu ermöglichen, die dem Benutzer nicht direkt zugänglich sind)
+
+### Firmware-Version
+set_mitm fängt den `GetFirmwareVersion`-Befehl ab, wenn der Anforderer `qlaunch` oder `maintenance` ist.
+Es ändert das `display_version`-Feld der zurückgegebenen Systemversion, sodass die Version in den Einstellungen als `#.#.#|AMS #.#.#|?` angezeigt wird, wobei `? = S` ist, wenn unter system eMMC ausgeführt wird, oder `? = E`, wenn unter emuliertem eMMC ausgeführt wird. Dies ermöglicht es den Benutzern, leicht zu überprüfen, welche Version von Atmosphère und welche eMMC-Umgebung sie verwenden.
+
+### Systemeinstellungen
+set_mitm fängt die Befehle `GetSettingsItemValueSize` und `GetSettingsItemValue` für alle Anforderer ab.
+Es tut dies, um die Benutzerkonfiguration von Systemeinstellungen zu ermöglichen, die beim Start aus `/atmosphere/system_settings.ini` geparst werden. Siehe [hier](../../features/configurations.md) für weitere Informationen zum Format der Systemeinstellungen.
+
+## dns_mitm
+dns_mitm ermöglicht das Abfangen von Anfragen an DNS-Auflösungsdienste, um Anfragen für bestimmte Hostnamen umzuleiten.
+
+Für Dokumentation siehe [hier](../../features/dns_mitm.md).
+
+---
+
+# ams_mitm
 This module provides methods to intercept services provided by other system modules. It is further sub-divided according to the service it targets.
 
 ## bpc_mitm
