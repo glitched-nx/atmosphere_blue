@@ -8,35 +8,44 @@
   <img alt="GitHub Tag" src="https://img.shields.io/github/v/tag/glitched-nx/atmosphere_blue?plastic&logoSize=auto&label=atmosph%C3%A8re%20blue&labelColor=%23abc4ff&color=%230d3ce6">
 </p>
 
-<p align="center">Eine modifizierte Version des originalen <a href="https://github.com/Atmosphere-NX/Atmosphere">Atmosphère</a></p>
-
-***Besonderheiten:***
-- ***Sigpatches im Code eingebettet***:
-- ***Entfernte ACID-Signaturprüfung***: Homebrews können ohne Patches verwendet werden.
-- ***System-Protokollierung entfernt*** Um ein Überladen der Speicherkarte und eine übermäßige Nutzung zu vermeiden.
-
-Die Code-Snippets für die genannten Modifikationen stammen aus [***Kefirosphere***](https://github.com/rashevskyv/Kefirosphere), einem weiteren Fork von Atmosphère. Der Entwickler [***rashevskyv***](https://github.com/rashevskyv) hat für Kefirosphere die IPS/Kip-Patches in den Code von Atmosphère integriert. Mit Hilfe von DuckBill (DBI) wurde die ACID-Signaturprüfung deaktiviert. Für **atmosphère blue** habe ich die entsprechenden Code-Snippets über die Commits mittels CherryPicks (VSCode Git Graph) übernommen.
-
-***Daybreak Quick*** Eine modifizierte deutschsprachige Version von Daybreak:
-  * Up- und Downgrading der Firmware auf drei Schritten abgeschlossen.
-  * Installation beider Treiber (exFAT und FAT32) erfolgt automatisch.
-  * Die "Factory Reset"-Option wurde entfernt.
-    
----
-
 <p align="center">A modified version of the original <a href="https://github.com/Atmosphere-NX/Atmosphere">Atmosphère</a></p>
 
-***Special Features:***
+***Specials:***
 - ***Sigpatches embedded in the code***:
 - ***Removed ACID signature check***: Homebrews can be used without patches.
-- ***System logging removed***: To avoid overloading the memory card and excessive usage.
+- ***System logging removed*** to avoid overloading the memory card and excessive usage.
 
-The code snippets for the mentioned modifications are from [***Kefirosphere***](https://github.com/rashevskyv/Kefirosphere), another fork of Atmosphère. The developer [***rashevskyv***](https://github.com/rashevskyv) integrated the IPS/Kip patches into Atmosphère's code for Kefirosphere. With the help of DuckBill (DBI), the ACID signature check was disabled. For **atmosphère blue**, I integrated the corresponding code snippets using CherryPicks (VSCode Git Graph) via the commits.
+The code snippets for the mentioned modifications come from [***Kefirosphere***](https://github.com/rashevskyv/Kefirosphere), another fork of Atmosphère. The developer [***rashevskyv***](https://github.com/rashevskyv) integrated the IPS/Kip patches into the code of Atmosphère for Kefirosphere. With the help of DuckBill (DBI), the ACID signature check was disabled. For **atmosphère blue**, I integrated the corresponding code snippets via commits using CherryPicks (VSCode Git Graph).
 
 ***Daybreak Quick*** A modified German version of Daybreak:
-  * Upgrading and downgrading firmware completed in three steps.
-  * Automatic installation of both drivers (exFAT and FAT32).
+  * Firmware upgrade and downgrade completed in three steps.
+  * Both drivers (exFAT and FAT32) are installed automatically.
   * The "Factory Reset" option has been removed.
+
+---
+
+[**Hekate**](https://github.com/CTCaer/hekate/releases/latest) bootloader is required to boot *atmosphere blue*!
+
+Download the latest `atmosphere_blue....zip` from below and unzip it to the root directory of the SD card. Navigate to `/bootloader` and open `hekate_ipl.ini` with a text editor. **Delete** the line `kip1patch=nosigchk` from both the atmosphere sysMMC and emuMMC boot-config entries. After making the changes, save the config file.
+
+### atmosphère (emuMMC)
+
+```ini
+[atmosphere blue (emuMMC)]
+fss0=atmosphere/package3
+emummcforce=1
+kip1patch=nosigchk  <-- Delete this line
+```
+
+### atmosphère (sysMMC)
+
+```ini
+[atmosphere blue (sysMMC)]
+fss0=atmosphere/package3
+emummc_force_disable=1
+kip1patch=nosigchk  <-- Delete this line
+```
+
 
 ---
 
