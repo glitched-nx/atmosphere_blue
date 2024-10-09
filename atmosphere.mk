@@ -14,6 +14,7 @@ ATMOSPHERE_SUPPORTED_HOS_MINOR_VERSION := $(shell grep 'define ATMOSPHERE_SUPPOR
 ATMOSPHERE_SUPPORTED_HOS_MICRO_VERSION := $(shell grep 'define ATMOSPHERE_SUPPORTED_HOS_VERSION_MICRO\b' $(ATMOSPHERE_LIBRARIES_DIR)/libvapours/include/vapours/ams/ams_api_version.h | tr -s [:blank:] | cut -d' ' -f3)
 
 ATMOSPHERE_VERSION := out
+ATMOSPHERE_VERSION := out
 
 dist-no-debug: package3 $(CURRENT_DIRECTORY)/$(ATMOSPHERE_OUT_DIR)
 	$(eval DIST_DIR = $(CURRENT_DIRECTORY)/$(ATMOSPHERE_OUT_DIR)/atmosphere-$(ATMOSPHERE_VERSION))

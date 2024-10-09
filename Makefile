@@ -1,6 +1,8 @@
 ATMOSPHERE_BUILD_CONFIGS :=
 
+
 all: nx_release
+
 
 clean: clean-nx_release
 
