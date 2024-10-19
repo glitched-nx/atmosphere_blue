@@ -112,3 +112,5 @@ stratosphere/test/
 /stratosphere/boot/source/convert.py
 /stratosphere/boot/source/bmp_to_array.py
 /stratosphere/boot/source/splash_screen.bmp
+
+/docs/commits_messages
