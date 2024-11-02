@@ -1,4 +1,4 @@
-![Banner](https://github.com/glitched-nx/atmosphere_blue/blob/50e60e6309ba672adac98b32f0409f8c5a12248c/img/banner_readme.png?raw=true)
+![Banner](https://github.com/glitched-nx/atmosphere_blue/raw/master/img/banner_readme.png?raw=true)
 
 <p align="center">
   <img src="https://img.shields.io/github/license/Atmosphere-NX/Atmosphere?style=plastc&labelColor=%23abc4ff&color=%230d3ce6" alt="GitHub License">

@@ -1,0 +1,301 @@
+TEKNO@TEKNO-PC MINGW64 ~/atmosphere_blue/troposphere/daybreak
+$ make -j$(nproc)
+make -C nanovg
+make[1]: Entering directory '/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg'
+{frag} fill_aa_fsh.glsl
+{frag} fill_fsh.glsl
+{vert} fill_vsh.glsl
+dk_renderer.cpp
+CApplication.cpp
+CExternalImage.cpp
+CIntrusiveTree.cpp
+CMemPool.cpp
+CShader.cpp
+FileLoader.cpp
+nanovg.c
+In file included from C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/source/nanovg.c:28:
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h: In function 'stbi__convert_format':
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1359:44: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+ 1359 |       #define CASE(a,b)   case COMBO(a,b): for(i=x-1; i >= 0; --i, src += a, dest += b)
+      |                                            ^~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1363:10: note: in expansion of macro 'CASE'
+ 1363 |          CASE(1,2) dest[0]=src[0], dest[1]=255; break;
+      |          ^~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1363:49: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+ 1363 |          CASE(1,2) dest[0]=src[0], dest[1]=255; break;
+      |                                                 ^~~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1359:44: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+ 1359 |       #define CASE(a,b)   case COMBO(a,b): for(i=x-1; i >= 0; --i, src += a, dest += b)
+      |                                            ^~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1364:10: note: in expansion of macro 'CASE'
+ 1364 |          CASE(1,3) dest[0]=dest[1]=dest[2]=src[0]; break;
+      |          ^~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1364:52: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+ 1364 |          CASE(1,3) dest[0]=dest[1]=dest[2]=src[0]; break;
+      |                                                    ^~~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1359:44: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+ 1359 |       #define CASE(a,b)   case COMBO(a,b): for(i=x-1; i >= 0; --i, src += a, dest += b)
+      |                                            ^~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1365:10: note: in expansion of macro 'CASE'
+ 1365 |          CASE(1,4) dest[0]=dest[1]=dest[2]=src[0], dest[3]=255; break;
+      |          ^~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1365:65: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+ 1365 |          CASE(1,4) dest[0]=dest[1]=dest[2]=src[0], dest[3]=255; break;
+      |                                                                 ^~~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1359:44: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+ 1359 |       #define CASE(a,b)   case COMBO(a,b): for(i=x-1; i >= 0; --i, src += a, dest += b)
+      |                                            ^~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1366:10: note: in expansion of macro 'CASE'
+ 1366 |          CASE(2,1) dest[0]=src[0]; break;
+      |          ^~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1366:36: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+ 1366 |          CASE(2,1) dest[0]=src[0]; break;
+      |                                    ^~~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1359:44: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+ 1359 |       #define CASE(a,b)   case COMBO(a,b): for(i=x-1; i >= 0; --i, src += a, dest += b)
+      |                                            ^~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1367:10: note: in expansion of macro 'CASE'
+ 1367 |          CASE(2,3) dest[0]=dest[1]=dest[2]=src[0]; break;
+      |          ^~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1367:52: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+ 1367 |          CASE(2,3) dest[0]=dest[1]=dest[2]=src[0]; break;
+      |                                                    ^~~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1359:44: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+ 1359 |       #define CASE(a,b)   case COMBO(a,b): for(i=x-1; i >= 0; --i, src += a, dest += b)
+      |                                            ^~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1368:10: note: in expansion of macro 'CASE'
+ 1368 |          CASE(2,4) dest[0]=dest[1]=dest[2]=src[0], dest[3]=src[1]; break;
+      |          ^~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1368:68: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+ 1368 |          CASE(2,4) dest[0]=dest[1]=dest[2]=src[0], dest[3]=src[1]; break;
+      |                                                                    ^~~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1359:44: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+ 1359 |       #define CASE(a,b)   case COMBO(a,b): for(i=x-1; i >= 0; --i, src += a, dest += b)
+      |                                            ^~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1369:10: note: in expansion of macro 'CASE'
+ 1369 |          CASE(3,4) dest[0]=src[0],dest[1]=src[1],dest[2]=src[2],dest[3]=255; break;
+      |          ^~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1369:78: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+ 1369 |          CASE(3,4) dest[0]=src[0],dest[1]=src[1],dest[2]=src[2],dest[3]=255; break;
+      |                                                                              ^~~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1359:44: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+ 1359 |       #define CASE(a,b)   case COMBO(a,b): for(i=x-1; i >= 0; --i, src += a, dest += b)
+      |                                            ^~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1370:10: note: in expansion of macro 'CASE'
+ 1370 |          CASE(3,1) dest[0]=stbi__compute_y(src[0],src[1],src[2]); break;
+      |          ^~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1370:67: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+ 1370 |          CASE(3,1) dest[0]=stbi__compute_y(src[0],src[1],src[2]); break;
+      |                                                                   ^~~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1359:44: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+ 1359 |       #define CASE(a,b)   case COMBO(a,b): for(i=x-1; i >= 0; --i, src += a, dest += b)
+      |                                            ^~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1371:10: note: in expansion of macro 'CASE'
+ 1371 |          CASE(3,2) dest[0]=stbi__compute_y(src[0],src[1],src[2]), dest[1] = 255; break;
+      |          ^~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1371:82: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+ 1371 |          CASE(3,2) dest[0]=stbi__compute_y(src[0],src[1],src[2]), dest[1] = 255; break;
+      |                                                                                  ^~~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1359:44: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+ 1359 |       #define CASE(a,b)   case COMBO(a,b): for(i=x-1; i >= 0; --i, src += a, dest += b)
+      |                                            ^~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1372:10: note: in expansion of macro 'CASE'
+ 1372 |          CASE(4,1) dest[0]=stbi__compute_y(src[0],src[1],src[2]); break;
+      |          ^~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1372:67: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+ 1372 |          CASE(4,1) dest[0]=stbi__compute_y(src[0],src[1],src[2]); break;
+      |                                                                   ^~~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1359:44: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+ 1359 |       #define CASE(a,b)   case COMBO(a,b): for(i=x-1; i >= 0; --i, src += a, dest += b)
+      |                                            ^~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1373:10: note: in expansion of macro 'CASE'
+ 1373 |          CASE(4,2) dest[0]=stbi__compute_y(src[0],src[1],src[2]), dest[1] = src[3]; break;
+      |          ^~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1373:85: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+ 1373 |          CASE(4,2) dest[0]=stbi__compute_y(src[0],src[1],src[2]), dest[1] = src[3]; break;
+      |                                                                                     ^~~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1359:44: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+ 1359 |       #define CASE(a,b)   case COMBO(a,b): for(i=x-1; i >= 0; --i, src += a, dest += b)
+      |                                            ^~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1374:10: note: in expansion of macro 'CASE'
+ 1374 |          CASE(4,3) dest[0]=src[0],dest[1]=src[1],dest[2]=src[2]; break;
+      |          ^~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:1374:66: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+ 1374 |          CASE(4,3) dest[0]=src[0],dest[1]=src[1],dest[2]=src[2]; break;
+      |                                                                  ^~~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h: In function 'stbi__create_png_image_raw':
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4049:17: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+ 4049 |                 for (k=0; k < nk; ++k)
+      |                 ^~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4053:13: note: in expansion of macro 'CASE'
+ 4053 |             CASE(STBI__F_sub)          cur[k] = STBI__BYTECAST(raw[k] + cur[k-filter_bytes]); break;
+      |             ^~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4053:95: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+ 4053 |             CASE(STBI__F_sub)          cur[k] = STBI__BYTECAST(raw[k] + cur[k-filter_bytes]); break;
+      |                                                                                               ^~~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4049:17: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+ 4049 |                 for (k=0; k < nk; ++k)
+      |                 ^~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4054:13: note: in expansion of macro 'CASE'
+ 4054 |             CASE(STBI__F_up)           cur[k] = STBI__BYTECAST(raw[k] + prior[k]); break;
+      |             ^~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4054:84: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+ 4054 |             CASE(STBI__F_up)           cur[k] = STBI__BYTECAST(raw[k] + prior[k]); break;
+      |                                                                                    ^~~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4049:17: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+ 4049 |                 for (k=0; k < nk; ++k)
+      |                 ^~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4055:13: note: in expansion of macro 'CASE'
+ 4055 |             CASE(STBI__F_avg)          cur[k] = STBI__BYTECAST(raw[k] + ((prior[k] + cur[k-filter_bytes])>>1)); break;
+      |             ^~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4055:113: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'fo
+'
+ 4055 |             CASE(STBI__F_avg)          cur[k] = STBI__BYTECAST(raw[k] + ((prior[k] + cur[k-filter_bytes])>>1)); break;
+      |                                                                                                                 ^~~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4049:17: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+ 4049 |                 for (k=0; k < nk; ++k)
+      |                 ^~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4056:13: note: in expansion of macro 'CASE'
+ 4056 |             CASE(STBI__F_paeth)        cur[k] = STBI__BYTECAST(raw[k] + stbi__paeth(cur[k-filter_bytes],prior[k],prior[k-filter_bytes])); break;
+      |             ^~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4056:139: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'fo
+'
+ 4056 |             CASE(STBI__F_paeth)        cur[k] = STBI__BYTECAST(raw[k] + stbi__paeth(cur[k-filter_bytes],prior[k],prior[k-filter_bytes])); break;
+      |                                                                                                                                           ^~~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4049:17: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+ 4049 |                 for (k=0; k < nk; ++k)
+      |                 ^~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4057:13: note: in expansion of macro 'CASE'
+ 4057 |             CASE(STBI__F_avg_first)    cur[k] = STBI__BYTECAST(raw[k] + (cur[k-filter_bytes] >> 1)); break;
+      |             ^~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4057:102: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'fo
+'
+ 4057 |             CASE(STBI__F_avg_first)    cur[k] = STBI__BYTECAST(raw[k] + (cur[k-filter_bytes] >> 1)); break;
+      |                                                                                                      ^~~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4049:17: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+ 4049 |                 for (k=0; k < nk; ++k)
+      |                 ^~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4058:13: note: in expansion of macro 'CASE'
+ 4058 |             CASE(STBI__F_paeth_first)  cur[k] = STBI__BYTECAST(raw[k] + stbi__paeth(cur[k-filter_bytes],0,0)); break;
+      |             ^~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4058:112: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'fo
+'
+ 4058 |             CASE(STBI__F_paeth_first)  cur[k] = STBI__BYTECAST(raw[k] + stbi__paeth(cur[k-filter_bytes],0,0)); break;
+      |                                                                                                                ^~~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4067:20: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+ 4067 |                    for (k=0; k < img_n; ++k)
+      |                    ^~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4069:13: note: in expansion of macro 'CASE'
+ 4069 |             CASE(STBI__F_none)         cur[k] = raw[k]; break;
+      |             ^~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4069:57: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+ 4069 |             CASE(STBI__F_none)         cur[k] = raw[k]; break;
+      |                                                         ^~~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4067:20: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+ 4067 |                    for (k=0; k < img_n; ++k)
+      |                    ^~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4070:13: note: in expansion of macro 'CASE'
+ 4070 |             CASE(STBI__F_sub)          cur[k] = STBI__BYTECAST(raw[k] + cur[k-out_n]); break;
+      |             ^~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4070:88: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+ 4070 |             CASE(STBI__F_sub)          cur[k] = STBI__BYTECAST(raw[k] + cur[k-out_n]); break;
+      |                                                                                        ^~~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4067:20: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+ 4067 |                    for (k=0; k < img_n; ++k)
+      |                    ^~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4071:13: note: in expansion of macro 'CASE'
+ 4071 |             CASE(STBI__F_up)           cur[k] = STBI__BYTECAST(raw[k] + prior[k]); break;
+      |             ^~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4071:84: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+ 4071 |             CASE(STBI__F_up)           cur[k] = STBI__BYTECAST(raw[k] + prior[k]); break;
+      |                                                                                    ^~~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4067:20: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+ 4067 |                    for (k=0; k < img_n; ++k)
+      |                    ^~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4072:13: note: in expansion of macro 'CASE'
+ 4072 |             CASE(STBI__F_avg)          cur[k] = STBI__BYTECAST(raw[k] + ((prior[k] + cur[k-out_n])>>1)); break;
+      |             ^~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4072:106: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'fo
+'
+ 4072 |             CASE(STBI__F_avg)          cur[k] = STBI__BYTECAST(raw[k] + ((prior[k] + cur[k-out_n])>>1)); break;
+      |                                                                                                          ^~~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4067:20: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+ 4067 |                    for (k=0; k < img_n; ++k)
+      |                    ^~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4073:13: note: in expansion of macro 'CASE'
+ 4073 |             CASE(STBI__F_paeth)        cur[k] = STBI__BYTECAST(raw[k] + stbi__paeth(cur[k-out_n],prior[k],prior[k-out_n])); break;
+      |             ^~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4073:125: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'fo
+'
+ 4073 |             CASE(STBI__F_paeth)        cur[k] = STBI__BYTECAST(raw[k] + stbi__paeth(cur[k-out_n],prior[k],prior[k-out_n])); break;
+      |                                                                                                                             ^~~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4067:20: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+ 4067 |                    for (k=0; k < img_n; ++k)
+      |                    ^~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4074:13: note: in expansion of macro 'CASE'
+ 4074 |             CASE(STBI__F_avg_first)    cur[k] = STBI__BYTECAST(raw[k] + (cur[k-out_n] >> 1)); break;
+      |             ^~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4074:95: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+ 4074 |             CASE(STBI__F_avg_first)    cur[k] = STBI__BYTECAST(raw[k] + (cur[k-out_n] >> 1)); break;
+      |                                                                                               ^~~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4067:20: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+ 4067 |                    for (k=0; k < img_n; ++k)
+      |                    ^~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4075:13: note: in expansion of macro 'CASE'
+ 4075 |             CASE(STBI__F_paeth_first)  cur[k] = STBI__BYTECAST(raw[k] + stbi__paeth(cur[k-out_n],0,0)); break;
+      |             ^~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/stb_image.h:4075:105: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'fo
+'
+ 4075 |             CASE(STBI__F_paeth_first)  cur[k] = STBI__BYTECAST(raw[k] + stbi__paeth(cur[k-out_n],0,0)); break;
+      |                                                                                                         ^~~~~
+In file included from C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/source/nanovg.c:26:
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/fontstash.h: In function 'fonsDeleteInternal':
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/fontstash.h:1664:5: warning: pointer 'stash' used after 'free' [-Wuse-after-free]
+ 1664 |     fons__tt_done(stash);
+      |     ^~~~~~~~~~~~~~~~~~~~
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/include/nanovg/fontstash.h:1663:5: note: call to 'free' here
+ 1663 |     free(stash);
+      |     ^~~~~~~~~~~
+In file included from C:/msys64/opt/devkitpro/portlibs/switch/include/glm/simd/platform.h:367,
+                 from C:/msys64/opt/devkitpro/portlibs/switch/include/glm/detail/setup.hpp:33,
+                 from C:/msys64/opt/devkitpro/portlibs/switch/include/glm/detail/qualifier.hpp:3,
+                 from C:/msys64/opt/devkitpro/portlibs/switch/include/glm/detail/type_vec2.hpp:6,
+                 from C:/msys64/opt/devkitpro/portlibs/switch/include/glm/ext/vector_bool2.hpp:5,
+                 from C:/msys64/opt/devkitpro/portlibs/switch/include/glm/vec2.hpp:5,
+                 from C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg/source/dk_renderer.cpp:12:
+C:/msys64/opt/devkitpro/portlibs/switch/include/glm/simd/neon.h:122:36: warning: 'float32x4_t glm::neon::madd_lane(float32x4_t, float32x4_t, float32x4_t, int)' defined but not used [-Wunused-function]
+  122 |                 static float32x4_t madd_lane(float32x4_t acc, float32x4_t v, float32x4_t vlane, int lane) {
+      |                                    ^~~~~~~~~
+C:/msys64/opt/devkitpro/portlibs/switch/include/glm/simd/neon.h:105:36: warning: 'float32x4_t glm::neon::mul_lane(float32x4_t, float32x4_t, int)' defined but not used [-Wunused-function]
+  105 |                 static float32x4_t mul_lane(float32x4_t v, float32x4_t vlane, int lane) {
+      |                                    ^~~~~~~~
+C:/msys64/opt/devkitpro/portlibs/switch/include/glm/simd/neon.h:47:36: warning: 'float32x4_t glm::neon::copy_lane(float32x4_t, int, float32x4_t, int)' defined but not used [-Wunused-function]
+   47 |                 static float32x4_t copy_lane(float32x4_t vdst, int dlane, float32x4_t vsrc, int slane) {
+      |                                    ^~~~~~~~~
+C:/msys64/opt/devkitpro/portlibs/switch/include/glm/simd/neon.h:29:36: warning: 'float32x2_t glm::neon::dup_lane(float32x4_t, int)' defined but not used [-Wunused-function]
+   29 |                 static float32x2_t dup_lane(float32x4_t vsrc, int lane) {
+      |                                    ^~~~~~~~
+C:/msys64/opt/devkitpro/portlibs/switch/include/glm/simd/neon.h:11:36: warning: 'float32x4_t glm::neon::dupq_lane(float32x4_t, int)' defined but not used [-Wunused-function]
+   11 |                 static float32x4_t dupq_lane(float32x4_t vsrc, int lane) {
+      |                                    ^~~~~~~~~
+libnanovg.a
+make[1]: Leaving directory '/home/TEKNO/atmosphere_blue/troposphere/daybreak/nanovg'
+main.cpp
+ui.cpp
+ui_util.cpp
+ams_su.c
+built ... daybreak.nacp
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/source/ui.cpp: In function 'bool dbk::InitializeMenu(u32, u32, const char*)':
+C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/source/ui.cpp:1279:20: warning: 'char* strncpy(char*, const char*, size_t)' specified bound 769 equals destination size [-Wstringop-truncatio
+]
+ 1279 |             strncpy(g_update_path, update_path, sizeof(g_update_path));
+      |             ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+linking daybreak.elf
+Visiting directories...
+Calculating metadata...
+Writing C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/romfs/shaders/fill_aa_fsh.dksh to RomFS image...
+Writing C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/romfs/shaders/fill_fsh.dksh to RomFS image...
+Writing C:/msys64/home/TEKNO/atmosphere_blue/troposphere/daybreak/romfs/shaders/fill_vsh.dksh to RomFS image...
+built ... daybreak.nro
+
+TEKNO@TEKNO-PC MINGW64 ~/atmosphere_blue/troposphere/daybreak
