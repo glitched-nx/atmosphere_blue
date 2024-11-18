@@ -2,28 +2,31 @@
 
 <p align="center">
   <img src="https://img.shields.io/github/license/Atmosphere-NX/Atmosphere?style=plastc&labelColor=%23abc4ff&color=%230d3ce6" alt="GitHub License">
-  <img src="https://img.shields.io/github/downloads/glitched-nx/atmo_blue/total?plastc&label=Downloads&labelColor=%23abc4ff&color=%230d3ce6" alt="GitHub Downloads">
 </p>
-<p align="center">
-  <img alt="GitHub Tag" src="https://img.shields.io/github/v/tag/glitched-nx/atmo_blue?plastic&logoSize=auto&label=atmosph%C3%A8re%20blue&labelColor=%23abc4ff&color=%230d3ce6">
-</p>
+<div align="center" style="font-size: 2em;">
+    <img src="https://img.shields.io/github/v/release/THZoria/NX_Firmware?style=for-the-badge&label=Aktuelle%20Systemversion&labelColor=123ede&color=b3b9e8" alt="Aktuelle Systemversion" />
+    <img src="https://img.shields.io/github/downloads/glitched-nx/atmo_blue/total?&style=for-the-badge&label=ATMO DOWNLOADS&labelColor=123ede&color=b3b9e8" alt="ATMO BLUE" />
+    <img src="https://img.shields.io/github/v/release/glitched-nx/atmo_blue?include_prereleases&style=for-the-badge&label=ATMO BLUE&labelColor=123ede&color=b3b9e8" alt="ATMO BLUE" />
+ </p>
+</div>
 
-<p align="center">Fork of <a href="https://github.com/Atmosphere-NX/Atmosphere">Atmosphère</a></p>
+<p align="right"><a href="https://github.com/Atmosphere-NX/Atmosphere">Atmosphère MOD</a></p>
 
 ***Specials:***
-- ***embedded Sigpatch in the code***:
-- ***Removed ACID signature check***: Homebrews can be used without patches.
+- ***embedded Sig`s***
+- ***removed ACID signature check***: Homebrews can be used without patches
+- ***added new splash Logo***
 
-***Daybreak Quick*** A modified German version of Daybreak:
-  * Firmware upgrade and downgrade completed in three steps.
-  * Both drivers (exFAT and FAT32) are installed automatically.
-  * The "Factory Reset" option has been removed.
+**Daybreak Quick MOD**:
+  * Firmware upgrade and downgrade completed in three steps only
+  * Both drivers FAT and FAT32) are installed as default
+  * The "Factory Reset" option has been removed
 
 ---
 
 [**Hekate**](https://github.com/CTCaer/hekate/releases/latest) bootloader is required to boot *atmosphere blue*!
 
-Download the latest `atmo_blue....zip` from below and unzip it to the root directory of the SD card. Navigate to `/bootloader` and open `hekate_ipl.ini` with a text editor. **Delete** the line `kip1patch=nosigchk` from both the atmosphere sysMMC and emuMMC boot-config entries. After making the changes, save the config file.
+Download the latest `atmo_blue.zip` from below and unzip it to the root directory of the SD card. Navigate to `/bootloader` and open `hekate_ipl.ini` with a text editor. **Delete** the line `kip1patch=nosigchk` from both the atmosphere sysMMC and emuMMC boot-config entries. After making the changes, save the config file.
 
 ### atmosphère (emuMMC)
 
