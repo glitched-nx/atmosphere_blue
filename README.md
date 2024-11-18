@@ -1,21 +1,18 @@
-![Banner](https://github.com/glitched-nx/atmosphere_blue/raw/master/img/banner_readme.png?raw=true)
+![Banner](https://github.com/glitched-nx/atmo_blue/raw/master/img/banner_readme.png?raw=true)
 
 <p align="center">
   <img src="https://img.shields.io/github/license/Atmosphere-NX/Atmosphere?style=plastc&labelColor=%23abc4ff&color=%230d3ce6" alt="GitHub License">
-  <img src="https://img.shields.io/github/downloads/glitched-nx/atmosphere_blue/total?plastc&label=Downloads&labelColor=%23abc4ff&color=%230d3ce6" alt="GitHub Downloads">
+  <img src="https://img.shields.io/github/downloads/glitched-nx/atmo_blue/total?plastc&label=Downloads&labelColor=%23abc4ff&color=%230d3ce6" alt="GitHub Downloads">
 </p>
 <p align="center">
-  <img alt="GitHub Tag" src="https://img.shields.io/github/v/tag/glitched-nx/atmosphere_blue?plastic&logoSize=auto&label=atmosph%C3%A8re%20blue&labelColor=%23abc4ff&color=%230d3ce6">
+  <img alt="GitHub Tag" src="https://img.shields.io/github/v/tag/glitched-nx/atmo_blue?plastic&logoSize=auto&label=atmosph%C3%A8re%20blue&labelColor=%23abc4ff&color=%230d3ce6">
 </p>
 
-<p align="center">A modified version of the original <a href="https://github.com/Atmosphere-NX/Atmosphere">Atmosphère</a></p>
+<p align="center">Fork of <a href="https://github.com/Atmosphere-NX/Atmosphere">Atmosphère</a></p>
 
 ***Specials:***
-- ***Sigpatches embedded in the code***:
+- ***embedded Sigpatch in the code***:
 - ***Removed ACID signature check***: Homebrews can be used without patches.
-- ***System logging removed*** to avoid overloading the memory card and excessive usage.
-
-The code snippets for the mentioned modifications come from [***Kefirosphere***](https://github.com/rashevskyv/Kefirosphere), another fork of Atmosphère. The developer [***rashevskyv***](https://github.com/rashevskyv) integrated the IPS/Kip patches into the code of Atmosphère for Kefirosphere. With the help of DuckBill (DBI), the ACID signature check was disabled. For **atmosphère blue**, I integrated the corresponding code snippets via commits using CherryPicks (VSCode Git Graph).
 
 ***Daybreak Quick*** A modified German version of Daybreak:
   * Firmware upgrade and downgrade completed in three steps.
@@ -26,12 +23,12 @@ The code snippets for the mentioned modifications come from [***Kefirosphere***]
 
 [**Hekate**](https://github.com/CTCaer/hekate/releases/latest) bootloader is required to boot *atmosphere blue*!
 
-Download the latest `atmosphere_blue....zip` from below and unzip it to the root directory of the SD card. Navigate to `/bootloader` and open `hekate_ipl.ini` with a text editor. **Delete** the line `kip1patch=nosigchk` from both the atmosphere sysMMC and emuMMC boot-config entries. After making the changes, save the config file.
+Download the latest `atmo_blue....zip` from below and unzip it to the root directory of the SD card. Navigate to `/bootloader` and open `hekate_ipl.ini` with a text editor. **Delete** the line `kip1patch=nosigchk` from both the atmosphere sysMMC and emuMMC boot-config entries. After making the changes, save the config file.
 
 ### atmosphère (emuMMC)
 
 ```ini
-[atmosphere blue (emuMMC)]
+[atmo blue (emuMMC)]
 fss0=atmosphere/package3
 emummcforce=1
 kip1patch=nosigchk  <-- Delete this line
@@ -40,22 +37,17 @@ kip1patch=nosigchk  <-- Delete this line
 ### atmosphère (sysMMC)
 
 ```ini
-[atmosphere blue (sysMMC)]
+[atmo blue (sysMMC)]
 fss0=atmosphere/package3
 emummc_force_disable=1
 kip1patch=nosigchk  <-- Delete this line
 ```
 
-
 ---
 
 ### Fork Licensing
 
-* This project, ***atmosphère blue***, is a fork of Atmosphère and is also licensed under GPLv2. The modifications made in this fork are subject to the same license terms.
-
-### Fork Credits
-
-* **rashevskyv** and the [Kefirosphere](https://github.com/rashevskyv/Kefirosphere) project for providing some of the code modifications used in atmosphère blue.
+* This project, ***atmo blue***, is a fork of Atmosphère and is also licensed under GPLv2. The modifications made in this fork are subject to the same license terms.
 
 ---
 
