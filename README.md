@@ -10,8 +10,6 @@
  </p>
 </div>
 
-<p align="right"><a href="https://github.com/Atmosphere-NX/Atmosphere">Atmosphère MOD</a></p>
-
 ***Specials:***
 - ***embedded Sig`s***
 - ***removed ACID signature check***: Homebrews can be used without patches
