@@ -16,12 +16,20 @@
 #pragma once
 #include <stratosphere.hpp>
 
-namespace ams::diag {
+namespace ams::pm::impl {
 
-    namespace impl {
+    struct ProcessAttributes {
+        u8 unknown[3];
+        ldr::ProgramAttributes program_attrs;
+    };
+    static_assert(sizeof(ProcessAttributes) == 5);
 
-        constexpr inline size_t DebugPrintBufferLength = 0x100;
-
-    }
+    constexpr inline ProcessAttributes ProcessAttributes_Nx = {
+        .unknown = {},
+        .program_attrs = {
+            .platform           = ncm::ContentMetaPlatform::Nx,
+            .content_attributes = fs::ContentAttributes_None,
+        },
+    };
 
 }
