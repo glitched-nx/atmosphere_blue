@@ -578,7 +578,7 @@ namespace ams::nxboot {
                 case FsVersion_6_0_0:
                     AddPatch(fs_meta, 0x071334, NoNcaHeaderSignatureCheckPatch1, sizeof(NoNcaHeaderSignatureCheckPatch1));
                     AddPatch(fs_meta, 0x0713A8, NoNcaHeaderSignatureCheckPatch1, sizeof(NoNcaHeaderSignatureCheckPatch1));
-                    AddPatch(fs_meta, 0x076184, NoNcaHeaderSignatureCheckPatch1, sizeof(NoNcaHeaderSignatureCheckPatch1));
+                    AddPatch(fs_meta, 0x081884, NoNcaHeaderSignatureCheckPatch1, sizeof(NoNcaHeaderSignatureCheckPatch1));
                     AddPatch(fs_meta, 0x0EB18C, NoNcaHeaderSignatureCheckPatch0, sizeof(NoNcaHeaderSignatureCheckPatch0));
                     break;
                 case FsVersion_6_0_0_Exfat:
@@ -713,12 +713,19 @@ namespace ams::nxboot {
                 case FsVersion_18_1_0:
                 case FsVersion_18_1_0_Exfat:
                     AddPatch(fs_meta, 0x0246F4, NoNcaHeaderSignatureCheckPatch0, sizeof(NoNcaHeaderSignatureCheckPatch0));
-                    AddPatch(fs_meta, 0x0744BC, NoNcaHeaderSignatureCheckPatch0, sizeof(NoNcaHeaderSignatureCheckPatch1));
+                    AddPatch(fs_meta, 0x0744BC, NoNcaHeaderSignatureCheckPatch0, sizeof(NoNcaHeaderSignatureCheckPatch0));
                     break;
                 case FsVersion_19_0_0:
                 case FsVersion_19_0_0_Exfat:
                     AddPatch(fs_meta, 0x021578, NoNcaHeaderSignatureCheckPatch0, sizeof(NoNcaHeaderSignatureCheckPatch0));
                     AddPatch(fs_meta, 0x0746A0, NoNcaHeaderSignatureCheckPatch1, sizeof(NoNcaHeaderSignatureCheckPatch1));
+                    break;
+                case FsVersion_20_0_0:
+                case FsVersion_20_0_0_Exfat:
+                case FsVersion_20_1_0:
+                case FsVersion_20_1_0_Exfat:
+                    AddPatch(fs_meta, 0x023C88, NoNcaHeaderSignatureCheckPatch0, sizeof(NoNcaHeaderSignatureCheckPatch0));
+                    AddPatch(fs_meta, 0x07A880, NoNcaHeaderSignatureCheckPatch1, sizeof(NoNcaHeaderSignatureCheckPatch1));
                     break;
                 default:
                     break;
